@@ -1,0 +1,36 @@
+<form *ngIf="personalFrom" [formGroup]="personalFrom" (ngSubmit)="onSubmit(personalFrom.value)">
+  <div class="form-group">
+    <label>Username</label>
+    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': personal.username.errors }" />
+    <div *ngIf="personal.username.errors" class="invalid-feedback">
+      <div *ngIf="personal.username.errors.required">Username is required</div>
+      <div *ngIf="personal.username.errors.minLength">Username must be at least 8 characters long.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>First Name</label>
+    <input type="text" formControlName="first_name" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label>Last Name</label>
+    <input type="text" formControlName="last_name" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': personal.email.errors }" />
+    <div *ngIf="personal.email.errors" class="invalid-feedback">
+      <div *ngIf="personal.email.errors.required">Email is required</div>
+      <div *ngIf="personal.email.errors.pattern">Email must be a valid email address</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Phone</label>
+    <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': personal.phone.errors }" />
+    <div *ngIf="personal.phone.errors" class="invalid-feedback">
+      <div *ngIf="personal.phone.errors.pattern">Please enter a valid number phone</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary">Save</button>
+  </div>
+</form>

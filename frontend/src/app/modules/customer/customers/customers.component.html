@@ -1,0 +1,44 @@
+
+<section class="page-header page-header-xs">
+  <div class="container">
+
+    <!-- breadcrumbs -->
+    <ol class="breadcrumb breadcrumb-inverse">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Pages</a></li>
+      <li class="active">{{username}}</li>
+    </ol><!-- /breadcrumbs -->
+
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-4">
+        <ul class="side-nav list-group mb-60" id="sidebar-nav">
+          <li class="list-group-item active"><a routerLink="/customer/info"><i class="fa fa-eye"></i> PROFILE</a></li>
+          <li class="list-group-item"><a routerLink="/customer/products"><i class="fa fa-tasks"></i> PRODUCTS</a></li>
+          <li class="list-group-item list-toggle">
+            <a data-toggle="collapse" href="#collapse-1">AUCTION</a>
+            <ul id="collapse-1" class="collapse">
+              <li><a routerLink="#"><i class="fa fa-angle-right"></i> CURRENT ACTIVE BIDS</a></li>
+              <li>
+                <a routerLink="#"><i class="fa fa-angle-right"></i>AUCTIONS WON</a>
+              </li>
+              <li class="active"><a routerLink="#"><i class="fa fa-angle-right"></i> AUCTIONS LOST</a></li>
+            </ul>
+          </li>
+          <li class="list-group-item"><a routerLink="/customer/orders"><i class="fa fa-gears"></i> ORDER</a></li>
+          <li class="list-group-item"><a routerLink="/customer/transactions"><i class="fa fa-gears"></i> TRANSACTIONS</a></li>
+          <li class="list-group-item"><a routerLink="/customer/change-password"><i class="fa fa-gears"></i> CHANGE PASSWORD</a></li>
+        </ul>
+
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-8">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</section>

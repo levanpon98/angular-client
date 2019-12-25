@@ -1,0 +1,134 @@
+
+<section class="page-header page-header-xs">
+  <div class="container">
+
+    <h1>LOGIN</h1>
+
+    <!-- breadcrumbs -->
+    <ol class="breadcrumb">
+      <li><a href="">Home</a></li>
+      <li class="active">Login</li>
+    </ol><!-- /breadcrumbs -->
+
+  </div>
+</section>
+
+<section style="background:url('assets/demo_files/images/wall2.jpg')">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-12 col-sm-5 col-md-5 col-lg-4 order-md-2 order-sm-2 order-lg-2">
+
+        <!-- ALERT -->
+
+        <div *ngIf="alert" class="alert alert-mini alert-danger mb-30">
+          <strong>{{this.errorMessage}}</strong>
+        </div><!-- /ALERT -->
+
+        <!-- login form -->
+        <form (ngSubmit)="login(LoginForm.value)" [formGroup]="LoginForm" class="sky-form boxed">
+          <header><i class="fa fa-users"></i>Login</header>
+
+          <fieldset class="m-0">
+
+            <label class="label mt-20">E-mail</label>
+            <label class="input">
+              <i class="ico-append fa fa-envelope"></i>
+              <input type="email" formControlName="email">
+              <span class="tooltip tooltip-top-right">Email Address</span>
+            </label>
+
+            <ng-container *ngFor="let validation of validation_messages.email">
+              <div class="alert alert-mini alert-danger" *ngIf="
+                    LoginForm.get('email').hasError(validation.type) &&
+                      (LoginForm.get('email').dirty ||
+                      LoginForm.get('email').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+            <label class="label mt-20">Password</label>
+            <label class="input">
+              <i class="ico-append fa fa-lock"></i>
+              <input type="password" formControlName="password">
+              <b class="tooltip tooltip-top-right">Type your Password</b>
+            </label>
+            <ng-container *ngFor="let validation of validation_messages.password">
+              <div class="alert alert-mini alert-danger" *ngIf="
+                  LoginForm.get('password').hasError(validation.type) &&
+                    (LoginForm.get('password').dirty ||
+                    LoginForm.get('password').touched)">
+                {{ validation.message }}
+              </div>
+            </ng-container>
+          </fieldset>
+
+          <footer class="celarfix">
+            <button  class="btn btn-primary rad-0 float-right"><i
+              class="fa fa-check"></i> OK, LOG IN
+            </button>
+            <div class="login-forgot-password float-left">
+              <a routerLink="/forgot-password">Forgot password?</a>
+            </div>
+          </footer>
+        </form>
+        <!-- /login form -->
+
+        <!--        <div class="mb-20 text-center">-->
+        <!--          – <b>OR</b> –-->
+        <!--        </div>-->
+
+        <!--        <div class="socials m-top10 text-center">&lt;!&ndash; more buttons: ui-buttons.html &ndash;&gt;-->
+        <!--          <a href="#" class="social-icon social-facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">-->
+        <!--            <i class="icon-facebook"></i>-->
+        <!--            <i class="icon-facebook"></i>-->
+        <!--          </a>-->
+        <!--          <a href="#" class="social-icon social-twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">-->
+        <!--            <i class="icon-twitter"></i>-->
+        <!--            <i class="icon-twitter"></i>-->
+        <!--          </a>-->
+        <!--          <a href="#" class="social-icon social-google" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google">-->
+        <!--            <i class="icon-google-plus"></i>-->
+        <!--            <i class="icon-google-plus"></i>-->
+        <!--          </a>-->
+
+        <!--        </div>-->
+
+      </div>
+
+
+      <div class="col-12 col-md-7 col-lg-8 order-md-1 order-sm-1 order-lg-1">
+
+        <h2 class="fs-20 text-center-xs">Why Smarty?</h2>
+
+        <p>Lorem ipsum dolor sit amet. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam, eaque ipsa.Lorem ipsum dolor sit amet. Sed ut perspiciatis unde
+          omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</p>
+
+        <ul class="list-unstyled login-features">
+          <li>
+            <i class="glyphicon glyphicon-road"></i> <strong>Lorem ipsum</strong> dolor sit amet.
+          </li>
+          <li>
+            <i class="glyphicon glyphicon-cog"></i> <strong>Sed ut perspiciatis</strong> unde omnis iste.
+          </li>
+          <li>
+            <i class="glyphicon glyphicon-tint"></i> <strong>Et harum quidem</strong> rerum facilis est et expedita
+            distinctio.
+          </li>
+          <li>
+            <i class="glyphicon glyphicon-screenshot"></i> <strong>Nam libero</strong> tempore, cum soluta nobis.
+          </li>
+          <li>
+            <i class="glyphicon glyphicon-fire"></i> <strong>Est eligendi</strong> voluptatem accusantium.
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
