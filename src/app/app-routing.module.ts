@@ -10,12 +10,12 @@ import {FaqComponent} from './components/faq/faq.component';
 import {TopBarComponent} from './modules/customer/top-bar/top-bar.component';
 
 const routes: Routes = [
-  {path: '',  pathMatch: 'full', component: HomepageComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: HomepageComponent },
   {path: 'login', component: LoginComponent},
   {path: 'faq', component: FaqComponent},
   {path: 'logout', component: LogoutComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'top-bar', component: TopBarComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
