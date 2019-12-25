@@ -1,49 +1,46 @@
-/server/node_modules
-/server/package-lock.json
-
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/frontend/dist
-/frontend/tmp
-/frontend/out-tsc
+/dist
+/tmp
+/out-tsc
 # Only exists if Bazel was run
-/frontend/bazel-out
+/bazel-out
 
 # dependencies
-/frontend/node_modules
+/node_modules
 
 # profiling files
 chrome-profiler-events*.json
 speed-measure-plugin*.json
 
 # IDEs and editors
-/frontend/.idea
-/frontend/.project
-/frontend/.classpath
-/frontend/.c9/
+/.idea
+.project
+.classpath
+.c9/
 *.launch
-/frontend/.settings/
+.settings/
 *.sublime-workspace
 
 # IDE - VSCode
-/frontend/.vscode/*
-!/frontend/.vscode/settings.json
-!/frontend/.vscode/tasks.json
-!/frontend/.vscode/launch.json
-!/frontend/.vscode/extensions.json
-/frontend/.history/*
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
 
 # misc
-/frontend/.sass-cache
-/frontend/connect.lock
-/frontend/coverage
-/frontend/libpeerconnection.log
-/frontend/npm-debug.log
-/frontend/yarn-error.log
-/frontend/testem.log
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
 /typings
 
 # System Files
-/frontend/.DS_Store
-/frontend/Thumbs.db
+.DS_Store
+Thumbs.db
