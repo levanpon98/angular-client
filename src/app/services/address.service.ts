@@ -7,8 +7,8 @@ import {Observable, throwError} from 'rxjs';
   providedIn: 'root'
 })
 export class AddressService {
-  private _uri = 'http://localhost:4000';
-  private userId = localStorage.getItem('userId')
+  private Uri = 'http://localhost:4000';
+  private userId = localStorage.getItem('userId');
   constructor(private http: HttpClient) {
   }
 
@@ -26,32 +26,32 @@ export class AddressService {
   }
 
   getProvinces(): Observable<any> {
-    return this.http.get<any>(`${this._uri}/api/province`).pipe(
+    return this.http.get<any>(`${this.Uri}/api/province`).pipe(
       retry(1),
       catchError(this.handleError)
     );
   }
 
   getDistrict(code): Observable<any> {
-    return this.http.get<any>(`${this._uri}/api/district/`+ code).pipe(
+    return this.http.get<any>(`${this.Uri}/api/district/` + code).pipe(
       retry(1),
       catchError(this.handleError)
     );
   }
 
   getWard(code): Observable<any> {
-    return this.http.get<any>(`${this._uri}/api/ward/`+ code).pipe(
+    return this.http.get<any>(`${this.Uri}/api/ward/` + code).pipe(
       retry(1),
       catchError(this.handleError)
     );
   }
 
-  addAddress(value) {
-    return this.http.post(`${this._uri}/api/address/` + this.userId, value)
+  addAddress(value): Observable<any> {
+    return this.http.post<any>(`${this.Uri}/api/address/` + this.userId, value);
   }
 
-  getAddresses() {
-    return this.http.get<any>(`${this._uri}/api/address/` + this.userId).pipe(
+  getAddresses(): Observable<any> {
+    return this.http.get<any>(`${this.Uri}/api/address/` + this.userId).pipe(
       retry(1),
       catchError(this.handleError)
     );

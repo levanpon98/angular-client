@@ -23,16 +23,16 @@ export class CustomerInfoAddressComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAddresses()
+    this.getAddresses();
     this.addressService.getProvinces().subscribe(data => {
       this.provinces = data;
     });
-    this.initFormAddAddress()
+    this.initFormAddAddress();
   }
 
   get form() { return this.addAddressFrom.controls; }
 
-  initFormAddAddress(){
+  initFormAddAddress() {
     this.addAddressFrom = this.formBuilder.group({
       address: new FormControl(
        '',
@@ -62,29 +62,29 @@ export class CustomerInfoAddressComponent implements OnInit {
   }
 
   addNewEvent() {
-    this.add = !this.add
+    this.add = !this.add;
   }
 
-  onChangeProvince(code){
-    if(code) {
+  onChangeProvince(code) {
+    if (code) {
       this.addressService.getDistrict(code).subscribe(data => {
         this.districts = data;
         this.wards = [];
-      })
+      });
     }
   }
 
   onChangeDistrict(code) {
-    if(code) {
+    if (code) {
       this.addressService.getWard(code).subscribe(data => {
-        this.wards = data
-      })
+        this.wards = data;
+      });
     }
   }
 
-  getAddresses(){
+  getAddresses() {
     this.addressService.getAddresses().subscribe(data => {
-      this.addresses = data
+      this.addresses = data;
     })
   }
   onSubmit(value) {
@@ -92,16 +92,16 @@ export class CustomerInfoAddressComponent implements OnInit {
       return;
     }
     var result = this.wards.filter(obj => {
-      return obj.code === value.ward
+      return obj.code === value.ward;
     });
     value["path"] = result[0].path_with_type;
 
     this.addressService.addAddress(value).subscribe(result => {
-      if(result.ok == 1) {
-        this.toast.success(result.messages, 'Success')
-        this.addresses.push(result.address)
+      if (result.ok == 1) {
+        this.toast.success(result.messages, 'Success');
+        this.addresses.push(result.address);
       } else if(result.ok == 0){
-        this.toast.error(result.error, 'Error')
+        this.toast.error(result.error, 'Error');
       }
     })
   }

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {throwError} from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
 
-  private _uri = 'http://localhost:4000';
+  private Uri = 'http://localhost:4000';
 
   get loggedInStatus(): boolean {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -35,8 +35,8 @@ export class AuthService {
     return throwError(errorMessage);
   }
 
-  login(value) {
-    return this.http.post(`${this._uri}/api/user/login`, value);
+  login(value): Observable<any> {
+    return this.http.post<any>(`${this.Uri}/api/user/login`, value);
   }
 
   logout() {
@@ -47,8 +47,8 @@ export class AuthService {
     localStorage.clear();
   }
 
-  register(value) {
-    return this.http.post(`${this._uri}/api/user/register`, value);
+  register(value): Observable<any> {
+    return this.http.post<any>(`${this.Uri}/api/user/register`, value);
   }
 
   getToken(): string {
@@ -58,7 +58,7 @@ export class AuthService {
   getTokenExpirationDate(token: string): Date {
     const decoded = this.helper.decodeToken(token);
 
-    if (decoded.exp === undefined) return null;
+    if (decoded.exp === undefined) { return null; }
 
     const date = new Date(0);
     date.setUTCSeconds(decoded.exp);
@@ -66,11 +66,11 @@ export class AuthService {
   }
 
   isTokenExpired(token?: string): boolean {
-    if(!token) token = this.getToken();
-    if(!token) return true;
+    if (!token) { token = this.getToken(); }
+    if (!token) { return true; }
 
     const date = this.getTokenExpirationDate(token);
-    if(date === undefined) return false;
+    if (date === undefined) { return false; }
     return !(date.valueOf() > new Date().valueOf());
   }
 }

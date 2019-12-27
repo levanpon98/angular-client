@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
   login(value) {
 
-    if(this.LoginForm.invalid) {
+    if (this.LoginForm.invalid) {
       return;
     }
 

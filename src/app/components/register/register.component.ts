@@ -56,11 +56,11 @@ export class RegisterComponent implements OnInit {
   };
 
   get form() { return this.RegisterFrom.controls; }
-  changeCheck(){
-    this.check = true
+  changeCheck() {
+    this.check = true;
   }
   changeStatus() {
-    this.status = !this.status
+    this.status = !this.status;
   }
 
   ngOnInit() {
@@ -102,7 +102,7 @@ export class RegisterComponent implements OnInit {
       if (result.ok) {
         this.success = true;
         this.error = false;
-        this.successMessage = result.message
+        this.successMessage = result.message;
 
         setInterval(() => {
           this.router.navigate(['login'])
