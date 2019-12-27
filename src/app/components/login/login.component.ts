@@ -64,8 +64,9 @@ export class LoginComponent implements OnInit {
     }
 
     this.auth.login(value).subscribe(result => {
+      console.log(result);
       if (result.ok) {
-        // @ts-ignore
+      //  @ts-ignore
         localStorage.setItem('isLoggedIn', true);
         localStorage.setItem('token', result.token);
         localStorage.setItem('username', result.user.displayName);

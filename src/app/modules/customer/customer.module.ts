@@ -1,3 +1,4 @@
+
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
@@ -12,11 +13,12 @@ import {TopBarComponent} from './top-bar/top-bar.component';
 import {ProductsComponent} from './products/products.component';
 import {OrdersComponent} from './orders/orders.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { MaterialModule } from '../../material/material.module';
 import { ConfirmPassDirective} from '../../share/confirm-pass.directive';
 import { CustomerInfoPersonalComponent } from './customer-info-personal/customer-info-personal.component';
 import { CustomerInfoAddressComponent } from './customer-info-address/customer-info-address.component';
 import { CustomerInfoWalletComponent } from './customer-info-wallet/customer-info-wallet.component';
+import { AddProductsComponent } from './add-products/add-products.component';
 
 @NgModule({
 
@@ -32,13 +34,15 @@ import { CustomerInfoWalletComponent } from './customer-info-wallet/customer-inf
     ConfirmPassDirective,
     CustomerInfoPersonalComponent,
     CustomerInfoAddressComponent,
-    CustomerInfoWalletComponent
+    CustomerInfoWalletComponent,
+    AddProductsComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     CustomerRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ],
   exports: [
     MenuComponent,

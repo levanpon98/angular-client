@@ -54,14 +54,14 @@ export class ChangePasswordComponent implements OnInit {
     if (this.changePasswordForm.invalid) {
       return;
     }
-    this.user.changePassword(value).subscribe(result => {
-      if (result.ok == 1) {
-        this.toast.success(result.messages, 'Success');
-      } else if (result.ok == 0) {
-        this.toast.error(result.error, 'Error');
-      } else if (result.ok == -1) {
-        this.toast.warning(result.error, 'Warning');
-      }
-    });
+    // this.user.changePassword(value).subscribe(result => {
+    //   if (result.ok == 1) {
+    //     this.toast.success(result.messages, 'Success');
+    //   } else if (result.ok == 0) {
+    //     this.toast.error(result.error, 'Error');
+    //   } else if (result.ok == -1) {
+    //     this.toast.warning(result.error, 'Warning');
+    //   }
+    // });
   }
 }

@@ -40,6 +40,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
   private handleAuthError(){
     this.auth.removeSession();
-    this.router.navigate(['login'])
+    this.router.navigate(['login']);
   }
 }

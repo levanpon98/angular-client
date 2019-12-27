@@ -2,162 +2,158 @@
 <app-menu></app-menu>
 
 <section class="page-header page-header-xs">
-  <div class="container">
+    <div class="container">
 
-    <h1>REGISTER</h1>
+        <h1>REGISTER</h1>
 
-    <!-- breadcrumbs -->
-    <ol class="breadcrumb">
-      <li><a routerLink="/">Home</a></li>
-      <li class="active">Register</li>
-    </ol><!-- /breadcrumbs -->
+        <!-- breadcrumbs -->
+        <ol class="breadcrumb">
+            <li><a routerLink="/">Home</a></li>
+            <li class="active">Register</li>
+        </ol>
+        <!-- /breadcrumbs -->
 
-  </div>
+    </div>
 </section>
 
 <section style="background:url('assets/demo_files/images/wall2.jpg')">
 
-  <div class="display-table">
-    <div class="display-table-cell vertical-align-middle">
+    <div class="display-table">
+        <div class="display-table-cell vertical-align-middle">
 
-      <div class="container">
+            <div class="container">
 
-        <div class="row">
+                <div class="row">
 
-          <div class="col-12 col-sm-5 col-md-5 col-lg-4 order-md-2 order-lg-2 order-sm-2">
+                    <div class="col-12 col-sm-5 col-md-5 col-lg-4 order-md-2 order-lg-2 order-sm-2">
 
-            <div *ngIf="error" class="alert alert-mini alert-danger mb-30">
-              <strong>{{this.errorMessage}}</strong>
-            </div><!-- /ALERT -->
-            <div *ngIf="success" class="alert alert-mini alert-success mb-30">
-              <strong>{{this.successMessage}}</strong> <br>
-              <strong>Redirecting...</strong>
-            </div><!-- /ALERT -->
+                        <div *ngIf="error" class="alert alert-mini alert-danger mb-30">
+                            <strong>{{this.errorMessage}}</strong>
+                        </div>
+                        <!-- /ALERT -->
+                        <div *ngIf="success" class="alert alert-mini alert-success mb-30">
+                            <strong>{{this.successMessage}}</strong> <br>
+                            <strong>Redirecting...</strong>
+                        </div>
+                        <!-- /ALERT -->
 
-            <!-- register form -->
-            <form (ngSubmit)="register(RegisterFrom.value)" [formGroup]="RegisterFrom" class="sky-form boxed"
-                  novalidate>
-              <header>
-                <i class="fa fa-users"></i> Register
-              </header>
+                        <!-- register form -->
+                        <form (ngSubmit)="register(RegisterFrom.value)" [formGroup]="RegisterFrom" class="sky-form boxed" novalidate>
+                            <header>
+                                <i class="fa fa-users"></i> Register
+                            </header>
 
-              <fieldset class="m-0">
-                <label class="input">
+                            <fieldset class="m-0">
+                                <label class="input">
                   <label class="label mt-20">Username</label>
-                  <i class="ico-append fa fa-lock"></i>
-                  <input type="text" placeholder="Username" formControlName="username">
-                  <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-                </label>
+                                <i class="ico-append fa fa-lock"></i>
+                                <input type="text" placeholder="Username" formControlName="Username">
+                                <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+                                </label>
 
-                <ng-container *ngFor="let validation of validation_messages.username">
-                  <div class="alert alert-mini alert-danger" *ngIf="
+                                <ng-container *ngFor="let validation of validation_messages.username">
+                                    <div class="alert alert-mini alert-danger" *ngIf="
                   form.username.hasError(validation.type) && (form.username.dirty ||  form.username.touched)">
-                    {{ validation.message }}
-                  </div>
-                </ng-container>
+                                        {{ validation.message }}
+                                    </div>
+                                </ng-container>
 
-                <label class="label mt-20">E-mail</label>
-                <label class="input">
+                                <label class="label mt-20">E-mail</label>
+                                <label class="input">
                   <i class="ico-append fa fa-envelope"></i>
                   <input type="email" placeholder="Personal Email" required="true" formControlName="email">
                   <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
                 </label>
 
-                <ng-container *ngFor="let validation of validation_messages.email">
-                  <div class="alert alert-mini alert-danger" *ngIf="
+                                <ng-container *ngFor="let validation of validation_messages.email">
+                                    <div class="alert alert-mini alert-danger" *ngIf="
                     form.email.hasError(validation.type) && (form.email.dirty ||  form.email.touched)">
-                    {{ validation.message }}
-                  </div>
-                </ng-container>
+                                        {{ validation.message }}
+                                    </div>
+                                </ng-container>
 
-                <label class="input">
+                                <label class="input">
                   <label class="label mt-20">Password</label>
-                  <i class="ico-append fa fa-lock"></i>
-                  <input type="password" placeholder="Password" required="true" formControlName="password">
-                  <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-                </label>
+                                <i class="ico-append fa fa-lock"></i>
+                                <input type="password" placeholder="Password" required="true" formControlName="password">
+                                <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+                                </label>
 
-                <ng-container *ngFor="let validation of validation_messages.password">
-                  <div class="alert alert-mini alert-danger" *ngIf="
+                                <ng-container *ngFor="let validation of validation_messages.password">
+                                    <div class="alert alert-mini alert-danger" *ngIf="
                   form.password.hasError(validation.type) && (form.password.dirty ||  form.password.touched)">
-                    {{ validation.message }}
-                  </div>
-                </ng-container>
+                                        {{ validation.message }}
+                                    </div>
+                                </ng-container>
 
-                <label class="input">
+                                <label class="input">
                   <label class="label mt-20">Confirm Password</label>
-                  <i class="ico-append fa fa-lock"></i>
-                  <input type="password" appConfirmPass="password" required="true" placeholder="Confirm password"
-                         formControlName="confirm_password">
-                  <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
-                </label>
+                                <i class="ico-append fa fa-lock"></i>
+                                <input type="password" appConfirmPass="password" required="true" placeholder="Confirm password" formControlName="confirm_password">
+                                <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+                                </label>
 
-                <ng-container *ngFor="let validation of validation_messages.confirm_password">
-                  <div class="alert alert-mini alert-danger" *ngIf="
+                                <ng-container *ngFor="let validation of validation_messages.confirm_password">
+                                    <div class="alert alert-mini alert-danger" *ngIf="
                    form.confirm_password.hasError(validation.type)
                    && (form.confirm_password.dirty ||  form.confirm_password.touched)">
-                    {{ validation.message }}
-                  </div>
-                </ng-container>
-                <div class="alert alert-mini alert-danger"
-                     *ngIf="form.confirm_password.errors?.notEqual">
-                  Confirm Password does not match
-                </div>
-                <div class="mt-20">
-                  <label class="checkbox m-0"><input class="checked-agree" type="checkbox"
+                                        {{ validation.message }}
+                                    </div>
+                                </ng-container>
+                                <div class="alert alert-mini alert-danger" *ngIf="form.confirm_password.errors?.notEqual">
+                                    Confirm Password does not match
+                                </div>
+                                <div class="mt-20">
+                                    <label class="checkbox m-0"><input class="checked-agree" type="checkbox"
                                                      (click)="changeStatus(); changeCheck()"><i></i>I
                     agree to the <a href="#" data-toggle="modal" data-target="#termsModal">Terms of Service</a></label>
+                                </div>
+                                <div class="alert alert-mini alert-danger" *ngIf="check === true && status === false">You must accept the terms of service
+                                </div>
+                            </fieldset>
+
+                            <div class="row mb-20">
+                                <div class="col-md-12">
+                                    <button class="btn btn-primary"><i class="fa fa-check"></i> REGISTER</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-12 col-md-7 col-sm-7 col-lg-8 order-md-1 order-lg-1 order-sm-1">
+
+
+                        <h2 class="fs-20 text-center-xs">Why Smarty?</h2>
+
+                        <p>Lorem ipsum dolor sit amet. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.Lorem ipsum dolor sit amet. Sed ut perspiciatis unde omnis iste natus error
+                            sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+                        </p>
+
+                        <ul class="list-unstyled login-features">
+                            <li>
+                                <i class="glyphicon glyphicon-road"></i> <strong>Lorem ipsum</strong> dolor sit amet.
+                            </li>
+                            <li>
+                                <i class="glyphicon glyphicon-cog"></i> <strong>Sed ut perspiciatis</strong> unde omnis iste.
+                            </li>
+                            <li>
+                                <i class="glyphicon glyphicon-tint"></i> <strong>Et harum quidem</strong> rerum facilis est et expedita distinctio.
+                            </li>
+                            <li>
+                                <i class="glyphicon glyphicon-screenshot"></i> <strong>Nam libero</strong> tempore, cum soluta nobis.
+                            </li>
+                            <li>
+                                <i class="glyphicon glyphicon-fire"></i> <strong>Est eligendi</strong> voluptatem accusantium.
+                            </li>
+                        </ul>
+
+                    </div>
+
                 </div>
-                <div class="alert alert-mini alert-danger" *ngIf="check === true && status === false">You must accept
-                  the
-                  terms of service
-                </div>
-              </fieldset>
 
-              <div class="row mb-20">
-                <div class="col-md-12">
-                  <button class="btn btn-primary"><i class="fa fa-check"></i> REGISTER</button>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <div class="col-12 col-md-7 col-sm-7 col-lg-8 order-md-1 order-lg-1 order-sm-1">
-
-
-            <h2 class="fs-20 text-center-xs">Why Smarty?</h2>
-
-            <p>Lorem ipsum dolor sit amet. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-              doloremque laudantium, totam rem aperiam, eaque ipsa.Lorem ipsum dolor sit amet. Sed ut perspiciatis unde
-              omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
-              ipsa.</p>
-
-            <ul class="list-unstyled login-features">
-              <li>
-                <i class="glyphicon glyphicon-road"></i> <strong>Lorem ipsum</strong> dolor sit amet.
-              </li>
-              <li>
-                <i class="glyphicon glyphicon-cog"></i> <strong>Sed ut perspiciatis</strong> unde omnis iste.
-              </li>
-              <li>
-                <i class="glyphicon glyphicon-tint"></i> <strong>Et harum quidem</strong> rerum facilis est et expedita
-                distinctio.
-              </li>
-              <li>
-                <i class="glyphicon glyphicon-screenshot"></i> <strong>Nam libero</strong> tempore, cum soluta nobis.
-              </li>
-              <li>
-                <i class="glyphicon glyphicon-fire"></i> <strong>Est eligendi</strong> voluptatem accusantium.
-              </li>
-            </ul>
-
-          </div>
+            </div>
 
         </div>
-
-      </div>
-
     </div>
-  </div>
 
 </section>

@@ -22,7 +22,8 @@ export class CustomerInfoPersonalComponent implements OnInit {
 
   ngOnInit() {
     this.user.getUserInfo().subscribe(result => {
-      this.initPersonalForm(result.user);
+    console.log(result);
+    this.initPersonalForm(result.user);
     });
   }
 
@@ -60,15 +61,15 @@ export class CustomerInfoPersonalComponent implements OnInit {
       return;
     }
 
-    this.user.updateUserInfo(value).subscribe(result => {
-      if(result.ok == 1) {
-        this.toast.success(result.messages, 'Success')
-      } else if(result.ok == 0){
-        this.toast.error(result.error, 'Error')
-      } else if (result.ok == -1) {
-        this.toast.warning(result.error, 'Warning')
-      }
-    })
+    // this.user.updateUserInfo(value).subscribe(result => {
+    //   if (result.ok === 1) {
+    //     this.toast.success(result.messages, 'Success');
+    //   } else if (result.ok === 0) {
+    //     this.toast.error(result.error, 'Error');
+    //   } else if (result.ok === -1) {
+    //     this.toast.warning(result.error, 'Warning');
+    //   }
+    // });
   }
 
 }

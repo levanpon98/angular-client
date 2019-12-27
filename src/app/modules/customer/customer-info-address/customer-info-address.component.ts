@@ -91,16 +91,16 @@ export class CustomerInfoAddressComponent implements OnInit {
     if (this.addAddressFrom.invalid) {
       return;
     }
-    var result = this.wards.filter(obj => {
+    let result = this.wards.filter(obj => {
       return obj.code === value.ward;
     });
-    value["path"] = result[0].path_with_type;
+    value['path'] = result[0].path_with_type;
 
     this.addressService.addAddress(value).subscribe(result => {
-      if (result.ok == 1) {
+      if (result.ok === 1) {
         this.toast.success(result.messages, 'Success');
         this.addresses.push(result.address);
-      } else if(result.ok == 0){
+      } else if(result.ok === 0){
         this.toast.error(result.error, 'Error');
       }
     })

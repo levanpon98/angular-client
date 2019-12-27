@@ -98,20 +98,22 @@ export class RegisterComponent implements OnInit {
     if(this.RegisterFrom.invalid || this.status === false) {
       return;
     }
+    console.log("Runing");
     this.auth.register(value).subscribe(result => {
-      if (result.ok) {
+      console.log(result.ok);
+      if(result.ok){
         this.success = true;
         this.error = false;
         this.successMessage = result.message;
-
         setInterval(() => {
-          this.router.navigate(['login'])
-        }, 2000)
-      } else {
-        this.error = true;
-        this.success = false;
-        this.errorMessage = result.message;
+          this.router.navigate(['login']);
+        }, 2000);
       }
+      else {
+          this.error = true;
+          this.success = false;
+          this.errorMessage = result.message;
+        }
     });
   }
 }
