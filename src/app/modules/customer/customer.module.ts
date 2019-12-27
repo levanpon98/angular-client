@@ -13,7 +13,6 @@ import {TopBarComponent} from './top-bar/top-bar.component';
 import {ProductsComponent} from './products/products.component';
 import {OrdersComponent} from './orders/orders.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MaterialModule } from '../../material/material.module';
 import { ConfirmPassDirective} from '../../share/confirm-pass.directive';
 import { CustomerInfoPersonalComponent } from './customer-info-personal/customer-info-personal.component';
 import { CustomerInfoAddressComponent } from './customer-info-address/customer-info-address.component';
@@ -42,7 +41,6 @@ import { AddProductsComponent } from './add-products/add-products.component';
     FormsModule,
     CustomerRoutingModule,
     ReactiveFormsModule,
-    MaterialModule
   ],
   exports: [
     MenuComponent,

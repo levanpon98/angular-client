@@ -1,5 +1,4 @@
-import { MaterialModule } from '../app/material/material.module';
-import { MatDialog } from '@angular/material';
+
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,10 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { CustomerModule } from './modules/customer/customer.module';
 import { ToastrModule} from 'ngx-toastr';
 import { JwtModule } from "@auth0/angular-jwt";
-import { OverlayModule } from '@angular/cdk/overlay';
-import {MatDialogModule} from '@angular/material/dialog';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -57,10 +52,7 @@ export function tokenGetter() {
     BrowserModule,
     CustomerModule,
     AppRoutingModule,
-    MaterialModule,
     FormsModule,
-    MatDialogModule,
-    OverlayModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -80,9 +72,6 @@ export function tokenGetter() {
     MenuService,
     CustomerService,
     AddressService,
-    MatDialog,
-    { provide: MAT_DIALOG_DATA, useValue: {} },
-    { provide: MatDialogRef, useValue: {} },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

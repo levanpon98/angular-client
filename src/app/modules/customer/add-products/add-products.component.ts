@@ -2,8 +2,6 @@ import { StorageService } from './../../../services/storage.service';
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
-import { MaterialModule } from '../../../material/material.module';
 @Component({
   selector: 'app-add-products',
   templateUrl: './add-products.component.html',
