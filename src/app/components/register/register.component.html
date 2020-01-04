@@ -51,7 +51,7 @@
                                 <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
                                 </label>
 
-                                <ng-container *ngFor="let validation of validation_messages.username">
+                                <ng-container *ngFor="let validation of validationMessages.username">
                                     <div class="alert alert-mini alert-danger" *ngIf="
                   form.username.hasError(validation.type) && (form.username.dirty ||  form.username.touched)">
                                         {{ validation.message }}
@@ -65,7 +65,7 @@
                   <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
                 </label>
 
-                                <ng-container *ngFor="let validation of validation_messages.email">
+                                <ng-container *ngFor="let validation of validationMessages.email">
                                     <div class="alert alert-mini alert-danger" *ngIf="
                     form.email.hasError(validation.type) && (form.email.dirty ||  form.email.touched)">
                                         {{ validation.message }}
@@ -79,7 +79,7 @@
                                 <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
                                 </label>
 
-                                <ng-container *ngFor="let validation of validation_messages.password">
+                                <ng-container *ngFor="let validation of validationMessages.password">
                                     <div class="alert alert-mini alert-danger" *ngIf="
                   form.password.hasError(validation.type) && (form.password.dirty ||  form.password.touched)">
                                         {{ validation.message }}
@@ -93,7 +93,7 @@
                                 <b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
                                 </label>
 
-                                <ng-container *ngFor="let validation of validation_messages.confirm_password">
+                                <ng-container *ngFor="let validation of validationMessages.confirm_password">
                                     <div class="alert alert-mini alert-danger" *ngIf="
                    form.confirm_password.hasError(validation.type)
                    && (form.confirm_password.dirty ||  form.confirm_password.touched)">

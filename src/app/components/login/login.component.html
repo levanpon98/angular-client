@@ -42,7 +42,7 @@
               <span class="tooltip tooltip-top-right">Email Address</span>
             </label>
 
-            <ng-container *ngFor="let validation of validation_messages.email">
+            <ng-container *ngFor="let validation of validationMessages.email">
               <div class="alert alert-mini alert-danger" *ngIf="
                     LoginForm.get('email').hasError(validation.type) &&
                       (LoginForm.get('email').dirty ||
@@ -56,7 +56,7 @@
               <input type="password" formControlName="password">
               <b class="tooltip tooltip-top-right">Type your Password</b>
             </label>
-            <ng-container *ngFor="let validation of validation_messages.password">
+            <ng-container *ngFor="let validation of validationMessages.password">
               <div class="alert alert-mini alert-danger" *ngIf="
                   LoginForm.get('password').hasError(validation.type) &&
                     (LoginForm.get('password').dirty ||

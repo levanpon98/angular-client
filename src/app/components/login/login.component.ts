@@ -18,14 +18,14 @@ export class LoginComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     private route: ActivatedRoute,
-  ) {
-  }
+  ) {}
 
+  // tslint:disable-next-line:ban-types
   errorMessage: String = '';
   LoginForm: FormGroup;
   returnURL: string;
   loading = false;
-  validation_messages = {
+  validationMessages = {
     email: [
       {type: 'required', message: 'Email is required.'},
       {type: 'pattern', message: 'Please enter a valid email.'}
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       )
     });
 
-    this.returnURL = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnURL = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
   login(value) {
@@ -64,19 +64,21 @@ export class LoginComponent implements OnInit {
     }
 
     this.auth.login(value).subscribe(result => {
-      console.log(result);
       if (result.ok) {
       //  @ts-ignore
         localStorage.setItem('isLoggedIn', true);
         localStorage.setItem('token', result.token);
         localStorage.setItem('username', result.user.displayName);
         localStorage.setItem('userId', result.user.id);
-        this.router.navigate(['top-bar']);
-        this.router.navigate(['customer/info']);
+        // this.router.navigate(['top-bar']);
+        // this.router.navigate(['customer/info']);
+        this.router.navigate(['dashboard']);
       } else {
         this.alert = true;
         this.errorMessage = result.message;
       }
     });
   }
+
+
 }

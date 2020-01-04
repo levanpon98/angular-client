@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -8,11 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-
   constructor() { }
 
+  // tslint:disable:only-arrow-functions
   ngOnInit() {
-
+    console.log(localStorage.getItem('isLoggedIn'));
+    if (localStorage.getItem('isLoggedIn')) {
+      window.addEventListener('popstate', function(event) {
+      window.history.back();
+      }, false);
+    }
   }
 
 }

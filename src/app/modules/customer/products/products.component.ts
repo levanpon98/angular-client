@@ -22,16 +22,16 @@ export class ProductsComponent implements OnInit {
     console.log('Running');
 
   }
-  GetProducts(){
+  GetProducts() {
     this.Strorage.getProduct().then((res) => {
         console.log(res);
     });
   }
-  OnCreate(){
+  OnCreate() {
     this.router.navigate(['customer/products']);
     this.router.navigate(['customer/addProducts']);
   }
-  onClose(){
+  onClose() {
 
   }
 }

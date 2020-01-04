@@ -19,11 +19,12 @@ export class AddProductsComponent implements OnInit {
   ) {
   }
 
+  // tslint:disable-next-line:ban-types
   errorMessage: String = '';
   AddProduct: FormGroup;
   returnURL: string;
   loading = false;
-  validation_messages = {
+  validationMessages = {
     title: [
       {type: 'required', message: 'Email is required.'},
       {type: 'pattern', message: 'Please enter a valid email.'}
@@ -79,14 +80,14 @@ export class AddProductsComponent implements OnInit {
       ),
     });
 
-    this.returnURL = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnURL = this.route.snapshot.queryParams.returnUrl || '/';
   }
-  AddProduct1(value){
-    console.log(value)
+  AddProduct1(value) {
+    console.log(value);
     this.Strorage.createProduct(value).then((result) => {
       console.log(result);
     });
   }
-  onSubmit(){
+  onSubmit() {
   }
 }

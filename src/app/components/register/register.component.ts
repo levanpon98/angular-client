@@ -17,7 +17,8 @@ export class RegisterComponent implements OnInit {
     private route: ActivatedRoute,
   ) {
   }
-  successMessage: String = ''
+  // tslint:disable:ban-types
+  successMessage: String = '';
   errorMessage: String = '';
   RegisterFrom: FormGroup;
   returnURL: string;
@@ -27,7 +28,7 @@ export class RegisterComponent implements OnInit {
   status = false;
   check = false;
 
-  validation_messages = {
+  validationMessages = {
     email: [
       {type: 'required', message: 'Email is required.'},
       {type: 'pattern', message: 'Please enter a valid email.'}
@@ -90,26 +91,25 @@ export class RegisterComponent implements OnInit {
       )
     });
 
-    this.returnURL = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnURL = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
 
   register(value) {
-    if(this.RegisterFrom.invalid || this.status === false) {
+    if (this.RegisterFrom.invalid || this.status === false) {
       return;
     }
-    console.log("Runing");
+    console.log('Runing');
     this.auth.register(value).subscribe(result => {
       console.log(result.ok);
-      if(result.ok){
+      if (result.ok) {
         this.success = true;
         this.error = false;
         this.successMessage = result.message;
         setInterval(() => {
           this.router.navigate(['login']);
         }, 2000);
-      }
-      else {
+      } else {
           this.error = true;
           this.success = false;
           this.errorMessage = result.message;
