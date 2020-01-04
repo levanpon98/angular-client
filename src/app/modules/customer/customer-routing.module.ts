@@ -1,4 +1,3 @@
-import { AddProductsComponent } from './add-products/add-products.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -36,10 +35,6 @@ const routes: Routes = [
       {
         path: 'orders',
         component: OrdersComponent
-      },
-      {
-        path: 'addProducts',
-        component: AddProductsComponent
       },
     ],
     canActivate: [AuthGuard]

@@ -7,12 +7,12 @@ import {HttpClient} from '@angular/common/http';
 })
 export class StorageService {
   private id = localStorage.getItem('userId');
-  private _uri = 'http://localhost:4000';
+  private uri = 'http://localhost:4000';
   constructor(private http: HttpClient) {
   }
   getProduct() {
     return new Promise((resolve, reject) => {
-      this.http.get(`${this._uri}/api/product`).toPromise().then((result) => {
+      this.http.get(`${this.uri}/api/product`).toPromise().then((result) => {
        resolve(result);
      }).catch((err) => {
        reject(err);
@@ -22,8 +22,9 @@ export class StorageService {
   createProduct(value) {
     return new Promise((resolve, reject) => {
       console.log(value);
-      this.http.post(`${this._uri}/api/product`,
+      this.http.post(`${this.uri}/api/product`,
        {
+        // tslint:disable:object-literal-key-quotes
         'title': value.title,
         'price': value.price,
         'description': value.description,

@@ -28,7 +28,6 @@ import { AddressService } from './services/address.service';
 // import { ConfirmPassDirective } from './share/confirm-pass.directive';
 
 import { AuthInterceptor } from './auth.interceptor';
-import { AddProductsComponent } from '../../src/app/modules/customer/add-products/add-products.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -63,7 +62,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        whitelistedDomains: ["localhost:4000"]
+        whitelistedDomains: ['localhost:4000']
       }
     })
   ],
@@ -79,6 +78,5 @@ export function tokenGetter() {
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AddProductsComponent]
 })
 export class AppModule { }
