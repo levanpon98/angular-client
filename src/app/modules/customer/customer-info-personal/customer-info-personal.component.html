@@ -1,4 +1,4 @@
-<form *ngIf="personalFrom" [formGroup]="personalFrom" (ngSubmit)="onSubmit(personalFrom.value)">
+<!-- <form *ngIf="personalFrom" [formGroup]="personalFrom" (ngSubmit)="onSubmit(personalFrom.value)">
   <div class="form-group">
     <label>Username</label>
     <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': personal.username.errors }" />
@@ -32,5 +32,191 @@
   </div>
   <div class="form-group">
     <button class="btn btn-primary">Save</button>
+  </div>
+</form> -->
+
+
+<form *ngIf="personalFrom" [formGroup]="personalFrom" (ngSubmit)="onSubmit(personalFrom.value)">
+  <div id="personal" class="container tab-pane active"><br>
+    <h5 class="pb-5">Personal Information</h5>
+    <div class="form-group row pb-3">
+      <label for="username" class="col-sm-2 col-form-label">Username</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="idUsername" value="Pornhub" readonly>
+      </div>
+      <div>
+        <button type="button" class="btn btn-outline-info changeUsername" id="editUsername" style="position: absolute;">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
+        <button type="button" class="btn btn-outline-info changeUsername" id="saveUsername" style="position: absolute;" disabled hidden>
+          <i class="fa fa-floppy-o" aria-hidden="true"> Save</i></button>
+        <script type="text/javascript">
+          var preventClick = false;
+
+          $('.changeUsername').click(function(e) {
+              if (!preventClick) {
+                $("#idUsername").prop('readonly', false);
+                $("#saveUsername").attr({'disabled': false, 'hidden': false});
+                $("#editUsername").attr({'disabled': true, 'hidden': true});
+                preventClick = true;
+              }
+              else {
+                $("#idUsername").prop('readonly', true);
+                $("#saveUsername").attr({'disabled': true, 'hidden': true});
+                $("#editUsername").attr({'disabled': false, 'hidden': false});
+                $('#pliteralUpdateInfo').show(0).delay(3000).hide(0);
+                preventClick = false;
+              }
+
+            // return false;
+          });
+        </script>
+      </div>
+    </div>
+    <div class="form-group row pb-1">
+      <label for="name" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-6">
+        <form>
+          <div class="form-row">
+            <div class="col">
+              <input type="text" class="form-control" id="idFirstName" value="First name" readonly>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="idLastName" value="Last name" readonly>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div>
+        <button type="button" class="btn btn-outline-info changeName" id="editName" style="position: absolute;">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
+        <button type="button" class="btn btn-outline-info changeName" id="saveName" style="position: absolute;" disabled hidden>
+          <i class="fa fa-floppy-o" aria-hidden="true"> Save</i></button>
+        <script type="text/javascript">
+          var preventClick = false;
+
+          $('.changeName').click(function(e) {
+              if (!preventClick) {
+                $("#idFirstName, #idLastName").prop('readonly', false);
+                $("#saveName").attr({'disabled': false, 'hidden': false});
+                $("#editName").attr({'disabled': true, 'hidden': true});
+                preventClick = true;
+              }
+              else {
+                $("#idFirstName, #idLastName").prop('readonly', true);
+                $("#saveName").attr({'disabled': true, 'hidden': true});
+                $("#editName").attr({'disabled': false, 'hidden': false});
+                $('#pliteralUpdateInfo').show(0).delay(3000).hide(0);
+                preventClick = false;
+              }
+
+            // return false;
+          });
+        </script>
+      </div>
+    </div>
+    <div class="form-group row pb-1">
+      <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+      <div class="col-sm-6 text-center d-flex justify-content-sm-around changeGender">
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" id="genderMale" class="form-check-input" name="optradio">Male
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input type="radio" id="genderFemale" class="form-check-input" name="optradio">Female
+          </label>
+        </div>
+      </div>
+      <div>
+        <script type="text/javascript">
+          $('.changeGender').click(function(e) {
+            $('#pliteralUpdateInfo').show(0).delay(3000).hide(0);
+
+            // return false;
+          });
+        </script>
+      </div>
+    </div>
+    <div class="form-group row pb-3">
+      <label for="birthdate" class="col-sm-2 col-form-label">Birthdate</label>
+      <div class="col-sm-6 text-center row justify-content-md-center">
+        <input id="datepicker" width="276" />
+          <script type="text/javascript">
+            $('#datepicker').datepicker({
+                  uiLibrary: 'bootstrap4'
+              });
+            $("#datepicker").on("change", function() {
+               $('#pliteralUpdateInfo').show(0).delay(3000).hide(0);
+            });
+        </script>
+      </div>
+    </div>
+    <div class="form-group row pb-3">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-6">
+        <input type="email" class="form-control" id="idEmail" placeholder="example@gmail.com" readonly>
+      </div>
+      <div>
+        <button type="button" class="btn btn-outline-info changeEmail" id="editEmail" style="position: absolute;">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
+        <button type="button" class="btn btn-outline-info changeEmail" id="saveEmail" style="position: absolute;" disabled hidden>
+          <i class="fa fa-floppy-o" aria-hidden="true"> Save</i></button>
+        <script type="text/javascript">
+          var preventClick = false;
+
+          $('.changeEmail').click(function(e) {
+              if (!preventClick) {
+                $("#idEmail").prop('readonly', false);
+                $("#saveEmail").attr({'disabled': false, 'hidden': false});
+                $("#editEmail").attr({'disabled': true, 'hidden': true});
+                preventClick = true;
+              }
+              else {
+                $("#idEmail").prop('readonly', true);
+                $("#saveEmail").attr({'disabled': true, 'hidden': true});
+                $("#editEmail").attr({'disabled': false, 'hidden': false});
+                $('#pliteralUpdateInfo').show(0).delay(3000).hide(0);
+                preventClick = false;
+              }
+
+            // return false;
+          });
+        </script>
+      </div>
+    </div>
+    <div class="form-group row pb-3">
+      <label for="phone" class="col-sm-2 col-form-label">Mobile phone</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="idPhoneNumber" readonly>
+      </div>
+      <div>
+        <button type="button" class="btn btn-outline-info changePhoneNumber" id="editPhoneNumber" style="position: absolute;">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button>
+        <button type="button" class="btn btn-outline-info changePhoneNumber" id="savePhoneNumber" style="position: absolute;" disabled hidden>
+          <i class="fa fa-floppy-o" aria-hidden="true"> Save</i></button>
+        <script type="text/javascript">
+          var preventClick = false;
+
+          $('.changePhoneNumber').click(function(e) {
+              if (!preventClick) {
+                $("#idPhoneNumber").prop('readonly', false);
+                $("#savePhoneNumber").attr({'disabled': false, 'hidden': false});
+                $("#editPhoneNumber").attr({'disabled': true, 'hidden': true});
+                preventClick = true;
+              }
+              else {
+                $("#idPhoneNumber").prop('readonly', true);
+                $("#savePhoneNumber").attr({'disabled': true, 'hidden': true});
+                $("#editPhoneNumber").attr({'disabled': false, 'hidden': false});
+                $('#pliteralUpdateInfo').show(0).delay(3000).hide(0);
+                preventClick = false;
+              }
+
+            // return false;
+          });
+        </script>
+      </div>
+    </div>
   </div>
 </form>

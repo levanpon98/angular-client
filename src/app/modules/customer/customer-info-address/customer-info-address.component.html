@@ -1,4 +1,4 @@
-<a (click)="addNewEvent()"  class="btn btn-3d btn-reveal btn-brown">
+<!-- <a (click)="addNewEvent()"  class="btn btn-3d btn-reveal btn-brown">
   <i class="et-basket"></i>
   <span>Add new address</span>
 </a>
@@ -13,9 +13,9 @@
   <div class="card-block">
     {{address.address + ','+ address.path}}
   </div>
-</div>
+</div> -->
 
-<form *ngIf="add" [formGroup]="addAddressFrom" (ngSubmit)="onSubmit(addAddressFrom.value)">
+<!-- <form *ngIf="add" [formGroup]="addAddressFrom" (ngSubmit)="onSubmit(addAddressFrom.value)">
   <div class="form-group">
     <label>Address</label>
     <input type="text" formControlName="address" class="form-control"
@@ -62,5 +62,79 @@
   <div class="form-group">
     <button class="btn btn-primary">Save</button>
   </div>
-</form>
+</form> -->
 
+<p class="mb-0">
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-plus" aria-hidden="true"> &nbsp; Add new address</i>
+  </button>
+</p>
+
+<div class="collapse" id="collapseExample" >
+  <div id="newAddress" class="container tab-pane active"><br>
+    <div class="form-group row pb-2">
+      <label for="name" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputName" placeholder="Firstname">
+      </div>
+    </div>
+    <div class="form-group row pb-2">
+      <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputLastName" placeholder="Lastname">
+      </div>
+    </div>
+    <div class="form-group row pb-2">
+      <label for="phone" class="col-sm-2 col-form-label">Mobile Phone</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Phone no. (start with 0)">
+      </div>
+    </div>
+    <div class="form-group row pb-2">
+      <label for="address" class="col-sm-2 col-form-label">Address</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputAddress" placeholder="Number + village + street">
+      </div>
+    </div>
+    <div class="form-group row pb-2">
+      <label for="province" class="col-sm-2 col-form-label">Province</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputProvince" placeholder="Province">
+      </div>
+    </div>
+    <div class="form-group row pb-2">
+      <label for="district" class="col-sm-2 col-form-label">District</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputDistrict" placeholder="District">
+      </div>
+    </div>
+    <div class="form-group row pb-2">
+      <label for="subdistrict" class="col-sm-2 col-form-label">Sub-district</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="inputSubDistrict" placeholder="Sub-district">
+      </div>
+    </div>
+    <div class="form-group row pb-3">
+      <label for="country" class="col-sm-2 col-form-label">Country</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="detailCountry" value="Vietnam" readonly="readonly">
+      </div>
+    </div>
+    <div class="btn-group pb-5" style="padding-left: 280px;" role="group">
+      <p>
+        <button class="btn btn-primary" style="margin-right: 30px;" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Cancel
+        </button>
+        <button class="btn btn-primary saveAddress" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Save Address
+        </button>
+
+        <script type="text/javascript">
+          $('.saveAddress').click(function(e) {
+            $('#pliteralUpdateInfo').show(0).delay(3000).hide(0);
+            // return false;
+          });
+        </script>
+      </p>
+    </div>
+  </div>
+</div>
