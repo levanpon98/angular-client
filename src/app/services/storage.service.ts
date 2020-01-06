@@ -70,11 +70,11 @@ export class StorageService {
    });
   });
  }
- DeleteProduct(id): Promise<any>{
+ DeleteProduct(id): Promise<any> {
   return new Promise((resolve, reject) => {
     this.http.delete(`${this.uri}/api/product/` + id).toPromise().then((result) => {
-      console.log("Done");
-     resolve(result);
+      console.log('Done');
+      resolve(result);
    }).catch((err) => {
      reject(err);
    });

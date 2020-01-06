@@ -20,14 +20,14 @@ export class ProductsComponent implements OnInit {
   ) { }
    // tslint:disable-next-line:ban-types
    errorMessage: String = '';
-   AddProduct: FormGroup;
+   formAddProduct: FormGroup;
    formEditProduct: FormGroup;
    returnURL: string;
    loading = false;
    defaultstatus = 3;
    items: Array<any> = [];
    item: Array<any> = [];
-   EditItems: Array<any> = [];
+  //  EditItems: Array<any> = [];
    EditItem: any;
    idEditItem: any;
    Edittitle: any;
@@ -64,7 +64,7 @@ export class ProductsComponent implements OnInit {
     this.GetProducts();
     this.statusDelete = false;
     console.log('Running');
-    this.AddProduct = this.formBuilder.group({
+    this.formAddProduct = this.formBuilder.group({
       title: new FormControl(
         '',
         Validators.compose([
@@ -138,25 +138,27 @@ export class ProductsComponent implements OnInit {
      // window.location.reload();
   });
   }
-  AddProduct1(value) {
+  AddProduct(value) {
     console.log(value);
     this.Strorage.createProduct(value).then((result) => {
       console.log(result);
+      this.GetProducts();
     });
   }
-  GetSpecific(value) {
+  editGetSpecific(value) {
     return new Promise((res, reject) => {
     this.Strorage.GetSpecificProduct(value).then((result) => {
-      this.EditItem = '';
+      // this.EditItem = '';
       this.EditItem = result;
       this.idEditItem = result.product._id;
+
       this.formEditProduct.controls.titleEdit.setValue(result.product.title);
       this.formEditProduct.controls.priceEdit.setValue(result.product.price);
-      this.formEditProduct.controls.descriptionEdit.setValue('result.product.description');
+      this.formEditProduct.controls.descriptionEdit.setValue(result.product.description);
       });
   });
   }
-  GetSpecific1(value){
+  deleteGetSpecific(value){
     this.DeleteItems = value;
     this.statusDelete = true;
   }
