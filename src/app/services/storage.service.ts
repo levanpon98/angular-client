@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {throwError} from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {HttpClient} from '@angular/common/http';
 @Injectable({
@@ -10,7 +10,7 @@ export class StorageService {
   private uri = 'http://localhost:4000';
   constructor(private http: HttpClient) {
   }
-  getProduct() {
+  getProduct(): Promise<any> {
     return new Promise((resolve, reject) => {
       this.http.get(`${this.uri}/api/product`).toPromise().then((result) => {
        resolve(result);
@@ -19,9 +19,8 @@ export class StorageService {
      });
     });
   }
-  createProduct(value) {
+  createProduct(value): Promise<any> {
     return new Promise((resolve, reject) => {
-      console.log(value);
       this.http.post(`${this.uri}/api/product`,
        {
         // tslint:disable:object-literal-key-quotes
@@ -38,4 +37,47 @@ export class StorageService {
      });
     });
   }
+  EditProduct(value, proid): Promise<any> {
+    return new Promise((resolve, reject) => {
+    this.http.patch<any>(`${this.uri}/api/product/` + proid,
+    {
+      'title': value.titleEdit,
+      'price': value.priceEdit,
+      'description': value.descriptionEdit,
+      'status': value.statusEdit
+    }).toPromise().then((result) => {
+      resolve(result);
+    }).catch((err) => {
+      reject(err);
+    });
+  });
+ }
+ GetOrder(): Promise<any> {
+  return new Promise((resolve, reject) => {
+    this.http.get(`${this.uri}/api/order`).toPromise().then((result) => {
+     resolve(result);
+   }).catch((err) => {
+     reject(err);
+   });
+  });
+ }
+ GetSpecificProduct(value): Promise<any> {
+  return new Promise((resolve, reject) => {
+    this.http.get(`${this.uri}/api/product/` + value).toPromise().then((result) => {
+     resolve(result);
+   }).catch((err) => {
+     reject(err);
+   });
+  });
+ }
+ DeleteProduct(id): Promise<any>{
+  return new Promise((resolve, reject) => {
+    this.http.delete(`${this.uri}/api/product/` + id).toPromise().then((result) => {
+      console.log("Done");
+     resolve(result);
+   }).catch((err) => {
+     reject(err);
+   });
+  });
+ }
 }

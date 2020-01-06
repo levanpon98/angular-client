@@ -1,152 +1,175 @@
-<h3>ORDERS</h3>
-<div class="table-responsive">
-  <table class="table table-bordered table-vertical-middle">
-    <thead>
-    <tr>
-      <th class="fw-30">Img</th>
-      <th>Column name</th>
-      <th>Ratings</th>
-      <th>Progress</th>
-      <th>Share</th>
-      <th>Column name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td class="text-center"><img src="assets/images/_smarty/male.png" alt="" width="20"></td>
-      <td>Value 1</td>
-      <td><div class="rating rating-0 fs-13 fw-100"><!-- rating-0 ... rating-5 --></div></td>
-      <td>
-        <div class="progress progress-xxs mb-0">
-          <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; min-width: 2em;">
-            <span class="sr-only">80% Complete</span>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+    <title>Order Manager</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+​
+  </head>
+  
+  <body>
+    <div id="wrapper">
+        <section>
+          <div class="container">
+            <h2 class="fs-16 font-regular mb-20 mt-6">
+              <i class="fa fa-bar-chart-o mr-10"></i> MY ORDERS 
+              <span class="text-muted">(4)</span>
+            </h2>
+            <div class="table-responsive">
+              <table class="table table-hover fs-16 fw-400">
+                <thead>
+                  <tr>
+                    <th class="w-25 text-center">ID</th>
+                    <th class="w-50">DATE</th>
+                    <th class="w-50 text-center">STATUS</th>
+                    <th class="w-25 text-center">PRODUCTS</th>
+                    <th class="w-25 text-center">TOTAL</th>
+                    <th class="w-25 text-center bg-white border-0"></th>
+                  </tr>
+                </thead> 
+                <tbody class="fs-14">
+                  <tr>
+                    <td class="text-center">4155</td>
+                    <td>Mon, Jun 5, 2017 / 11:05</td>
+                    <td class="text-warning text-center">PROCESSING</td>
+  <!--              <td class="text-warning">PROCESSING</td>
+                    <td class="text-success">DELIVERED</td>
+                    <td class="text-muted">
+                      CANCELED
+                      <small class="block fs-12 fw-200">by request</small>
+                    </td>
+                    <td class="text-danger">
+                      REJECTED
+                      <small class="block fs-12 fw-200">Invalid Credit Card</small>
+                    </td>
+                      -->
+                    <td class="text-center">3</td>
+                    <td class="text-center">$88.99</td>
+                    <td class="text-center bg-white border-0">
+                      <button type="button" class="btn btn-flat btn-v1 btn-sm" data-toggle="modal" data-target="#orderDetailModal">
+                        <i class="fa fa-eye m-0 p-3"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+​
+    <div class="modal fade bd-example-modal-lg" style="width: 100%;" id="orderDetailModal" tabindex="-1" role="dialog" aria-labelledby="orderDetailModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-upcase font-weight-bolder" id="orderDetailModalTitle">ORDER <a href="" class="text-decoration-none text-primary fs-17" onclick="return false">&nbsp;No. 4155</a></h5> 
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body fs-14">
+            <div class="container-fluid">              
+              <div class="table-responsive">
+                <table class="table table-sm table-borderless fs-16 fw-400 ">
+                  <thead class="fs-14">
+                    <tr>
+                      <th class="fw-600 font-weight-bolder fs-16" style="width: 12%;">BILL TO</th>
+                      <th class="fw-600 font-weight-bolder" style="width: 38%;"></th>
+                      <th class="fw-600 font-weight-bolder fs-16" style="width: 12%;">SHIP TO</th>
+                      <th class="fw-600 font-weight-bolder" style="width: 38%;"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="fs-14">
+                    <tr>
+                      <td><strong>Name</strong></td>
+                      <td>HCMUS</td>
+                      <td><strong>Name</strong></td>
+                      <td>HCMUS</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Company</strong></td>
+                      <td>HCMUS</td>
+                      <td><strong>Company</strong></td>
+                      <td>HCMUS</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Address</strong></td>
+                      <td>227, Nguyen Van Cu, Phuong 4, Quan 5</td>
+                      <td><strong>Address</strong></td>
+                      <td>227, Nguyen Van Cu, Phuong 4, Quan 5, Thanh pho Ho Chi Minh</td>
+                    </tr>
+                    <tr>
+                      <td><strong>City</strong></td>
+                      <td>Thanh pho Ho Chi Minh</td>
+                      <td><strong>City</strong></td>
+                      <td>Thanh pho Ho Chi Minh</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Phone</strong></td>
+                      <td>1234567890</td>
+                      <td><strong>Phone</strong></td>
+                      <td>1234567890</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+​
+              <div class="table-responsive mt-60">
+                <table class="table table-bordered fs-16 fw-400">
+                  <thead class="fs-14">
+                    <tr>
+                      <th class="fw-600 font-weight-bolder">DESCRIPTION</th>
+                      <th class="fw-600 font-weight-bolder">QUANTITY</th>
+                      <th class="fw-600 font-weight-bolder">UNIT PRICE</th>
+                      <th class="fw-600 font-weight-bolder">AMOUNT</th>
+                    </tr>
+                  </thead>
+                  <tbody class="fs-14">
+                    <tr>
+                      <td>Fidget Spinner</td>
+                      <td>2</td>
+                      <td>$11.22</td>
+                      <td>$22.44</td>
+                    </tr>
+                    <tr>
+                      <td>Wedding Ring</td>
+                      <td>1</td>
+                      <td>$144.99</td>
+                      <td>$144.99</td>
+                    </tr>
+                    <tr class="b-0 fs-16">
+                      <td class="b-0"></td>
+                      <td class="b-0"></td>
+                      <td class="fw-600 text-info">TOTAL</td>
+                      <td class="fw-600 text-info">$167.43</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="block mt-30">
+                <p>
+                  <b>Order Message: </b>
+                  Not at home
+                </p>
+                <p>
+                  <b>Order Status: </b> <span class="text-success"> Delivered</span>
+                  <span class="block fs-14">
+                    June 23, 2017
+                  </span>
+                </p>
+​
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-      </td>
-      <td>
-        <ul class="list-inline m-0 fs-12">
-          <li><a href="#" class="icon-facebook mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"></a></li>
-          <li><a href="#" class="icon-twitter mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"></a></li>
-          <li><a href="#" class="icon-gplus mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus"></a></li>
-          <li><a href="#" class="icon-linkedin mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin"></a></li>
-          <li><a href="#" class="icon-pinterest mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest"></a></li>
-        </ul>
-      </td>
-      <td><span class="badge badge-success">Approved </span></td>
-    </tr>
-    <tr>
-      <td class="text-center"><img src="assets/images/_smarty/female.png" alt="" width="20"></td>
-      <td>Value 2</td>
-      <td><div class="rating rating-1 fs-13 fw-100"><!-- rating-0 ... rating-5 --></div></td>
-      <td>
-        <div class="progress progress-xxs mb-0">
-          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; min-width: 2em;">
-            <span class="sr-only">80% Complete</span>
-          </div>
-        </div>
-      </td>
-      <td>
-        <ul class="list-inline m-0 fs-12">
-          <li><a href="#" class="icon-facebook mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"></a></li>
-          <li><a href="#" class="icon-twitter mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"></a></li>
-          <li><a href="#" class="icon-gplus mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus"></a></li>
-          <li><a href="#" class="icon-linkedin mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin"></a></li>
-          <li><a href="#" class="icon-pinterest mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest"></a></li>
-        </ul>
-      </td>
-      <td><span class="badge badge-info">Pending </span></td>
-    </tr>
-    <tr>
-      <td class="text-center"><img src="assets/images/_smarty/female.png" alt="" width="20"></td>
-      <td>Value 3</td>
-      <td><div class="rating rating-2 fs-13 fw-100"><!-- rating-0 ... rating-5 --></div></td>
-      <td>
-        <div class="progress progress-xxs mb-0">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; min-width: 2em;">
-            <span class="sr-only">80% Complete</span>
-          </div>
-        </div>
-      </td>
-      <td>
-        <ul class="list-inline m-0 fs-12">
-          <li><a href="#" class="icon-facebook mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"></a></li>
-          <li><a href="#" class="icon-twitter mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"></a></li>
-          <li><a href="#" class="icon-gplus mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus"></a></li>
-          <li><a href="#" class="icon-linkedin mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin"></a></li>
-          <li><a href="#" class="icon-pinterest mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest"></a></li>
-        </ul>
-      </td>
-      <td><span class="badge badge-warning">Suspended </span></td>
-    </tr>
-    <tr>
-      <td class="text-center"><img src="assets/images/_smarty/male.png" alt="" width="20"></td>
-      <td>Value 4</td>
-      <td><div class="rating rating-3 fs-13 fw-100"><!-- rating-0 ... rating-5 --></div></td>
-      <td>
-        <div class="progress progress-xxs mb-0">
-          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; min-width: 2em;">
-            <span class="sr-only">80% Complete</span>
-          </div>
-        </div>
-      </td>
-      <td>
-        <ul class="list-inline m-0 fs-12">
-          <li><a href="#" class="icon-facebook mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"></a></li>
-          <li><a href="#" class="icon-twitter mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"></a></li>
-          <li><a href="#" class="icon-gplus mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus"></a></li>
-          <li><a href="#" class="icon-linkedin mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin"></a></li>
-          <li><a href="#" class="icon-pinterest mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest"></a></li>
-        </ul>
-      </td>
-      <td><span class="badge badge-danger">Blocked </span></td>
-    </tr>
-    <tr>
-      <td class="text-center"><img src="assets/images/_smarty/male.png" alt="" width="20"></td>
-      <td>Value 5</td>
-      <td><div class="rating rating-4 fs-13 fw-100"><!-- rating-0 ... rating-5 --></div></td>
-      <td>
-        <div class="progress progress-xxs mb-0">
-          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; min-width: 2em;">
-            <span class="sr-only">80% Complete</span>
-          </div>
-        </div>
-      </td>
-      <td>
-        <ul class="list-inline m-0 fs-12">
-          <li><a href="#" class="icon-facebook mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"></a></li>
-          <li><a href="#" class="icon-twitter mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"></a></li>
-          <li><a href="#" class="icon-gplus mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus"></a></li>
-          <li><a href="#" class="icon-linkedin mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin"></a></li>
-          <li><a href="#" class="icon-pinterest mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest"></a></li>
-        </ul>
-      </td>
-      <td><span class="badge badge-primary">N/A </span></td>
-    </tr>
-    <tr>
-      <td class="text-center"><img src="assets/images/_smarty/female.png" alt="" width="20"></td>
-      <td>Value 6</td>
-      <td><div class="rating rating-5 fs-13 fw-100"><!-- rating-0 ... rating-5 --></div></td>
-      <td>
-        <div class="progress progress-xxs mb-0">
-          <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; min-width: 2em;">
-            <span class="sr-only">80% Complete</span>
-          </div>
-        </div>
-      </td>
-      <td>
-        <ul class="list-inline m-0 fs-12">
-          <li><a href="#" class="icon-facebook mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"></a></li>
-          <li><a href="#" class="icon-twitter mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"></a></li>
-          <li><a href="#" class="icon-gplus mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus"></a></li>
-          <li><a href="#" class="icon-linkedin mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin"></a></li>
-          <li><a href="#" class="icon-pinterest mt-6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest"></a></li>
-        </ul>
-      </td>
-      <td>
-        <a href="#" class="btn btn-default btn-sm"><i class="fa fa-edit white"></i> Edit </a>
-        <a href="#" class="btn btn-default btn-sm"><i class="fa fa-times white"></i> Delete </a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+      </div>
+​
+    </div>
+  </body>
+</html>
