@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, ElementRef } from '@angular/core';
+import { Component, OnInit, Injectable, Renderer, ElementRef } from '@angular/core';
 import {StorageService} from '../../../services/storage.service';
 import { NgModule } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
@@ -11,6 +11,8 @@ import { ThrowStmt } from '@angular/compiler';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
+// @ViewChild('one') d1: ElementRef;
+
 export class ProductsComponent implements OnInit {
   constructor(
    private Strorage: StorageService,
@@ -171,6 +173,14 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  public onClick(event): void {
+    const thisRemoveImage = event.target;
+
+    thisRemoveImage.style.display = '';
+    thisRemoveImage.parentNode.removeChild(thisRemoveImage);
+  }
+
+// ****************/
   public onChange(event): void {
     if ((event.target as HTMLInputElement).files && (event.target as HTMLInputElement).files.length) {
       const file = event.target.files[0];
@@ -178,15 +188,84 @@ export class ProductsComponent implements OnInit {
 
       const reader = new FileReader();
       // tslint:disable-next-line:no-shadowed-variable
+      thisUploadImage.parentElement.style.display = 'none';
+
       reader.onload = (evt) => {
-        localStorage.setItem('urlImage', JSON.stringify((event.target as FileReader).result));
+        // localStorage.setItem('urlImage', JSON.stringify((event.target as FileReader).result));
+        const url = (evt.target as FileReader).result;
+        // tslint:disable-next-line:max-line-length
+        const span = '<img class="thumb mrm mts" style="width: 128px; height: 128px;" src="' + url + '" title="' + escape(file.name) + '"/><span class="remove_img_preview"></span>';
+
+// ****************/
+        const innerHTML = this.elementRef.nativeElement.querySelector('.preview-section');
+        innerHTML.insertAdjacentHTML('beforeend', span);
       };
 
-      const urlImg = localStorage.getItem('urlImage');
-      console.log(urlImg);
+      // const urlImg = localStorage.getItem('urlImage');
+      // console.log(urlImg);
 
       reader.readAsDataURL(file);
       event.target.value = '';
     }
   }
+
+// ****************/
+  public onChange1(event): void {
+    if ((event.target as HTMLInputElement).files && (event.target as HTMLInputElement).files.length) {
+      const file = event.target.files[0];
+      const thisUploadImage = event.target;
+
+      const reader = new FileReader();
+      // tslint:disable-next-line:no-shadowed-variable
+      thisUploadImage.parentElement.style.display = 'none';
+
+      reader.onload = (evt) => {
+        // localStorage.setItem('urlImage', JSON.stringify((event.target as FileReader).result));
+        const url = (evt.target as FileReader).result;
+        // tslint:disable-next-line:max-line-length
+        const span = '<img class="thumb mrm mts" style="width: 128px; height: 128px;" src="' + url + '" title="' + escape(file.name) + '"/><span class="remove_img_preview"></span>';
+
+// ****************/
+        const innerHTML = this.elementRef.nativeElement.querySelector('.preview-section1');
+        innerHTML.insertAdjacentHTML('beforeend', span);
+      };
+
+      // const urlImg = localStorage.getItem('urlImage');
+      // console.log(urlImg);
+
+      reader.readAsDataURL(file);
+      event.target.value = '';
+    }
+  }
+
+// ****************/
+  public onChange2(event): void {
+    if ((event.target as HTMLInputElement).files && (event.target as HTMLInputElement).files.length) {
+      const file = event.target.files[0];
+      const thisUploadImage = event.target;
+
+      const reader = new FileReader();
+      // tslint:disable-next-line:no-shadowed-variable
+      thisUploadImage.parentElement.style.display = 'none';
+
+      reader.onload = (evt) => {
+        // localStorage.setItem('urlImage', JSON.stringify((event.target as FileReader).result));
+        const url = (evt.target as FileReader).result;
+        // tslint:disable-next-line:max-line-length
+        const span = '<img class="thumb mrm mts" style="width: 128px; height: 128px;" src="' + url + '" title="' + escape(file.name) + '"/><span class="remove_img_preview"></span>';
+
+// ****************/
+        const innerHTML = this.elementRef.nativeElement.querySelector('.preview-section2');
+        innerHTML.insertAdjacentHTML('beforeend', span);
+      };
+
+      // const urlImg = localStorage.getItem('urlImage');
+      // console.log(urlImg);
+
+      reader.readAsDataURL(file);
+      event.target.value = '';
+    }
+  }
+
+
 }
