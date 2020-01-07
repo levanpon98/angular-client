@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { CustomerInfoComponent} from './customer-info/customer-info.component';
-import { TransactionsComponent} from './transactions/transactions.component';
 import {CustomersComponent} from './customers/customers.component';
 
 import {AuthGuard} from '../../guard/auth.guard';
@@ -23,10 +22,6 @@ const routes: Routes = [
       {
         path: 'info',
         component: CustomerInfoComponent
-      },
-      {
-        path: 'transactions',
-        component: TransactionsComponent
       },
       {
         path: 'products',

@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, ElementRef } from '@angular/core';
 import {StorageService} from '../../../services/storage.service';
 import { NgModule } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
@@ -17,6 +17,7 @@ export class ProductsComponent implements OnInit {
    private router: Router,
    private route: ActivatedRoute,
    private formBuilder: FormBuilder,
+   private elementRef: ElementRef,
   ) { }
    // tslint:disable-next-line:ban-types
    errorMessage: String = '';
@@ -158,15 +159,34 @@ export class ProductsComponent implements OnInit {
       });
   });
   }
-  deleteGetSpecific(value){
+  deleteGetSpecific(value) {
     this.DeleteItems = value;
     this.statusDelete = true;
   }
-  DeleteProduct(){
+  DeleteProduct() {
     console.log(this.DeleteItems);
     this.Strorage.DeleteProduct(this.DeleteItems).then((result) => {
       console.log(result);
       this.GetProducts();
     });
+  }
+
+  public onChange(event): void {
+    if ((event.target as HTMLInputElement).files && (event.target as HTMLInputElement).files.length) {
+      const file = event.target.files[0];
+      const thisUploadImage = event.target;
+
+      const reader = new FileReader();
+      // tslint:disable-next-line:no-shadowed-variable
+      reader.onload = (evt) => {
+        localStorage.setItem('urlImage', JSON.stringify((event.target as FileReader).result));
+      };
+
+      const urlImg = localStorage.getItem('urlImage');
+      console.log(urlImg);
+
+      reader.readAsDataURL(file);
+      event.target.value = '';
+    }
   }
 }

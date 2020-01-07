@@ -6,7 +6,6 @@ import {CustomerRoutingModule} from './customer-routing.module';
 
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {CustomerInfoComponent} from './customer-info/customer-info.component';
-import {TransactionsComponent} from './transactions/transactions.component';
 import {CustomersComponent} from './customers/customers.component';
 import {MenuComponent} from './menu/menu.component';
 import {TopBarComponent} from './top-bar/top-bar.component';
@@ -23,7 +22,6 @@ import { CustomerInfoWalletComponent } from './customer-info-wallet/customer-inf
   declarations: [
     ChangePasswordComponent,
     CustomerInfoComponent,
-    TransactionsComponent,
     CustomersComponent,
     MenuComponent,
     TopBarComponent,
