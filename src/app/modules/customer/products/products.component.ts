@@ -181,6 +181,35 @@ export class ProductsComponent implements OnInit {
   }
 
 // ****************/
+public onChange_main(event): void {
+  if ((event.target as HTMLInputElement).files && (event.target as HTMLInputElement).files.length) {
+    const file = event.target.files[0];
+    const thisUploadImage = event.target;
+
+    const reader = new FileReader();
+    // tslint:disable-next-line:no-shadowed-variable
+    thisUploadImage.parentElement.style.display = 'none';
+
+    reader.onload = (evt) => {
+      // localStorage.setItem('urlImage', JSON.stringify((event.target as FileReader).result));
+      const url = (evt.target as FileReader).result;
+      // tslint:disable-next-line:max-line-length
+      const span = '<img class="thumb mrm mts" style="width: 192px; height: 192px;" src="' + url + '" title="' + escape(file.name) + '"/><span class="remove_img_preview"></span>';
+
+// ****************/
+      const innerHTML = this.elementRef.nativeElement.querySelector('.preview-section_main');
+      innerHTML.insertAdjacentHTML('beforeend', span);
+    };
+
+    // const urlImg = localStorage.getItem('urlImage');
+    // console.log(urlImg);
+
+    reader.readAsDataURL(file);
+    event.target.value = '';
+  }
+}
+
+// ****************/
   public onChange(event): void {
     if ((event.target as HTMLInputElement).files && (event.target as HTMLInputElement).files.length) {
       const file = event.target.files[0];
@@ -266,6 +295,4 @@ export class ProductsComponent implements OnInit {
       event.target.value = '';
     }
   }
-
-
 }

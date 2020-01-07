@@ -293,8 +293,24 @@
                         
                         <div class="form-group">
                             <label for="image" class="mb-0">Upload image <strong class="text-danger">*</strong></label>
+
+                            <div class="column image_container d-flex justify-content-center">
+                                <div class="post-image-collection pt-0">
+                                    <div class="post-image post-image-placeholder mrm mts empty" style="width: 192px; height: 192px;">
+                                        <div class="upload-section ">
+                                            <input type="file" id="image_main" class="upload-img" required accept="image/*" (change)="onChange_main($event)"/>
+                                            <label class="cloud_upload" for="image_main">
+                                                <img class="mt-4" style="width: 64px; height: 64px;"
+                                                        src="https://cdn.onlinewebfonts.com/svg/img_474324.png" />
+                                            </label>
+                                            <p class="text-muted pt-5 mt-5">Drag and drop a file here or click</p>
+                                        </div>
+                                        <div class="preview-section_main" (click)="onClick_main($event)"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="column image_container">
-                                <div class="post-image-collection">
+                                <div class="post-image-collection pt-0">
                                     <div class="post-image post-image-placeholder mrm mts empty">
                                         <div class="upload-section">
                                             <input type="file" id="image_1" class="upload-img" required accept="image/*" (change)="onChange($event)"/>
