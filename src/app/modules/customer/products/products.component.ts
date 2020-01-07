@@ -173,7 +173,29 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+
+  public onClick_main(event): void {
+    const thisRemoveImage = event.target;
+
+    thisRemoveImage.style.display = '';
+    thisRemoveImage.parentNode.removeChild(thisRemoveImage);
+  }
+
   public onClick(event): void {
+    const thisRemoveImage = event.target;
+
+    thisRemoveImage.style.display = '';
+    thisRemoveImage.parentNode.removeChild(thisRemoveImage);
+  }
+
+  public onClick1(event): void {
+    const thisRemoveImage = event.target;
+
+    thisRemoveImage.style.display = '';
+    thisRemoveImage.parentNode.removeChild(thisRemoveImage);
+  }
+
+  public onClick2(event): void {
     const thisRemoveImage = event.target;
 
     thisRemoveImage.style.display = '';
