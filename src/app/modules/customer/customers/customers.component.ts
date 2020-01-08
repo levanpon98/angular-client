@@ -1,5 +1,5 @@
+import { SharedModule } from '../../shared/shared.module';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',

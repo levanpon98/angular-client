@@ -1,3 +1,4 @@
+import { SharedModule } from './modules/shared/shared.module';
 import { BiddingModule } from './modules/bidding/bidding.module';
 import { CheckoutService } from './services/checkout.service';
 
@@ -11,8 +12,6 @@ import { CustomerModule } from './modules/customer/customer.module';
 import { ToastrModule} from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FileSelectDirective } from 'ng2-file-upload';
-
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -58,6 +57,7 @@ export function tokenGetter() {
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    SharedModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
@@ -82,6 +82,8 @@ export function tokenGetter() {
       useClass: AuthInterceptor,
       multi: true
     }
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent],
 })

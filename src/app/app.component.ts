@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MenuComponent} from './modules/customer/menu/menu.component';
 import { FooterComponent} from './components/footer/footer.component';
 import { SearchComponent} from './components/search/search.component';
 

@@ -156,6 +156,7 @@ export class ProductsComponent implements OnInit {
         ])
       ),
     });
+    this.router.navigate(['bidding/biddingtheme']);
   }
   GetProducts() {
     this.Strorage.getProduct().then((res)  => {

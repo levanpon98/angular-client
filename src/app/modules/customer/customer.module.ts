@@ -1,14 +1,10 @@
-
+import { SharedModule } from '../shared/shared.module';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-
 import {CustomerRoutingModule} from './customer-routing.module';
-
 import {ChangePasswordComponent} from './change-password/change-password.component';
 import {CustomerInfoComponent} from './customer-info/customer-info.component';
 import {CustomersComponent} from './customers/customers.component';
-import {MenuComponent} from './menu/menu.component';
-import {TopBarComponent} from './top-bar/top-bar.component';
 import {ProductsComponent} from './products/products.component';
 import {OrdersComponent} from './orders/orders.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -26,8 +22,6 @@ import { BiddingComponent } from './bidding/bidding.component';
     ChangePasswordComponent,
     CustomerInfoComponent,
     CustomersComponent,
-    MenuComponent,
-    TopBarComponent,
     ProductsComponent,
     OrdersComponent,
     ConfirmPassDirective,
@@ -43,10 +37,9 @@ import { BiddingComponent } from './bidding/bidding.component';
     FormsModule,
     CustomerRoutingModule,
     ReactiveFormsModule,
+    SharedModule
   ],
   exports: [
-    MenuComponent,
-    TopBarComponent,
     ConfirmPassDirective
   ]
 })

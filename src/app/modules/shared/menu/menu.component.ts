@@ -7,7 +7,7 @@ import { MenuService} from '../../../services/menu.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  menus: Object = [];
+  menus: object = [];
 
   constructor(private menuService: MenuService,
               ) { }
