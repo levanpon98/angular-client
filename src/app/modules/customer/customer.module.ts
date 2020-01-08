@@ -1,3 +1,4 @@
+import { BiddingModule } from './../bidding/bidding.module';
 import { SharedModule } from '../shared/shared.module';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
@@ -14,7 +15,7 @@ import { CustomerInfoAddressComponent } from './customer-info-address/customer-i
 import { CustomerInfoWalletComponent } from './customer-info-wallet/customer-info-wallet.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartsComponent } from './carts/carts.component';
-import { BiddingComponent } from './bidding/bidding.component';
+
 
 @NgModule({
 
@@ -30,10 +31,10 @@ import { BiddingComponent } from './bidding/bidding.component';
     CustomerInfoWalletComponent,
     CheckoutComponent,
     CartsComponent,
-    BiddingComponent,
   ],
   imports: [
     CommonModule,
+    BiddingModule,
     FormsModule,
     CustomerRoutingModule,
     ReactiveFormsModule,

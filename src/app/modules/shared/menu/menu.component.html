@@ -1,54 +1,54 @@
 <div id="header" class="navbar-toggleable-md sticky dark clearfix">
 
-  <!-- SEARCH HEADER -->
-  <div class="search-box over-header">
-    <a id="closeSearch" href="#" class="fa fa-remove"></a>
+    <!-- SEARCH HEADER -->
+    <div class="search-box over-header">
+        <a id="closeSearch" href="#" class="fa fa-remove"></a>
 
-    <form action="" method="get">
-      <input type="text" class="form-control" placeholder="SEARCH"/>
-    </form>
-  </div>
-  <!-- /SEARCH HEADER -->
+        <form action="" method="get">
+            <input type="text" class="form-control" placeholder="SEARCH" />
+        </form>
+    </div>
+    <!-- /SEARCH HEADER -->
 
 
-  <!-- TOP NAV -->
-  <header id="topNav">
-    <div class="container">
+    <!-- TOP NAV -->
+    <header id="topNav">
+        <div class="container">
 
-      <!-- Mobile Menu Button -->
-      <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+            <!-- Mobile Menu Button -->
+            <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
         <i class="fa fa-bars"></i>
       </button>
 
-      <!-- BUTTONS -->
-      <ul class="float-right nav nav-pills nav-second-main">
+            <!-- BUTTONS -->
+            <ul class="float-right nav nav-pills nav-second-main">
 
-        <!-- SEARCH -->
-        <li class="search">
-          <a href="javascript:;">
-            <i class="fa fa-search"></i>
-          </a>
-        </li>
-        <!-- /SEARCH -->
+                <!-- SEARCH -->
+                <li class="search">
+                    <a href="javascript:;">
+                        <i class="fa fa-search"></i>
+                    </a>
+                </li>
+                <!-- /SEARCH -->
 
-      </ul>
-      <!-- /BUTTONS -->
+            </ul>
+            <!-- /BUTTONS -->
 
-      <!-- Logo -->
-      <a class="logo float-left"  routerLink="">
+            <!-- Logo -->
+            <button class="logo float-left" routerLink="" (click)="goToProductPage()">
         <img src="assets/images/_smarty/logo_light.png" alt=""/>
-      </a>
+      </button>
 
-      <!--
+            <!--
         Top Nav
 
         AVAILABLE CLASSES:
         submenu-dark = dark sub menu
       -->
-      <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
-        <nav class="nav-main">
+            <div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+                <nav class="nav-main">
 
-          <!--
+                    <!--
             NOTE
 
             For a regular link, remove "dropdown" class from LI tag and "dropdown-toggle" class from the href.
@@ -58,22 +58,22 @@
               <a href="#">HOME</a>
             </li>
           -->
-          <ul id="topMain" class="nav nav-pills nav-main">
+                    <ul id="topMain" class="nav nav-pills nav-main">
 
-            <li class="dropdown" *ngFor="let item of menus">
-              <!-- HOME -->
-              <a class="dropdown-toggle" routerLink="item.link">
+                        <li class="dropdown" *ngFor="let item of menus">
+                            <!-- HOME -->
+                            <a class="dropdown-toggle" routerLink="item.link">
                 {{item.title}}
               </a>
 
-            </li>
+                        </li>
 
-          </ul>
+                    </ul>
 
-        </nav>
-      </div>
+                </nav>
+            </div>
 
-    </div>
-  </header>
+        </div>
+    </header>
 
 </div>

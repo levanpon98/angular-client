@@ -1,4 +1,5 @@
-import { BiddingComponent } from './bidding/bidding.component';
+import { CartsComponent } from './carts/carts.component';
+
 import { CheckoutComponent } from './checkout/checkout.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -37,8 +38,8 @@ const routes: Routes = [
         component: OrdersComponent
       },
       {
-        path: 'bidding',
-        component: BiddingComponent
+        path: 'carts',
+        component: CartsComponent
       },
     ],
     canActivate: [AuthGuard]

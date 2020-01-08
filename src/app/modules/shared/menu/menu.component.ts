@@ -1,6 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MenuService} from '../../../services/menu.service';
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -10,6 +10,7 @@ export class MenuComponent implements OnInit {
   menus: object = [];
 
   constructor(private menuService: MenuService,
+              private router: Router
               ) { }
 
   ngOnInit() {
@@ -17,5 +18,8 @@ export class MenuComponent implements OnInit {
     this.menuService.getMenu().subscribe(res => {
       this.menus = res;
     });
+  }
+  goToProductPage(){
+    this.router.navigate(['bidding/biddingtheme']);
   }
 }

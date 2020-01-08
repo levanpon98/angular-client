@@ -19,6 +19,15 @@ export class StorageService {
      });
     });
   }
+  getProductDetails(value): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.http.get(`${this.uri}/api/product/` + value).toPromise().then((result) => {
+       resolve(result);
+     }).catch((err) => {
+       reject(err);
+     });
+    });
+  }
   createProduct(value, image1, image2, image3, mainimage): Promise<any> {
     return new Promise((resolve, reject) => {
       console.log(mainimage.name);

@@ -7,7 +7,6 @@ import {ForgotPasswordComponent} from './components/forgot-password/forgot-passw
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {LogoutComponent} from './components/logout/logout.component';
 import {FaqComponent} from './components/faq/faq.component';
-import {TopBarComponent} from './modules/customer/top-bar/top-bar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

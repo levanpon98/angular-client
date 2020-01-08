@@ -1,38 +1,23 @@
+import { BiddingdetailsComponent } from './biddingdetails/biddingdetails.component';
+import { BiddingthemeComponent } from './biddingtheme/biddingtheme.component';
 import { AuthGuard } from './../../guard/auth.guard';
-import { BiddingComponent } from './../customer/bidding/bidding.component';
+import { BiddingComponent } from './../bidding/bidding/bidding.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 const routes: Routes = [
   {
-    path: 'biddingtheme',
+    path: 'bidding',
     component: BiddingComponent,
     children: [
-      // {
-      //   path: 'change-password',
-      //   component: ChangePasswordComponent
-      // },
-      // {
-      //   path: 'checkout',
-      //   component: CheckoutComponent
-      // },
-      // {
-      //   path: 'info',
-      //   component: CustomerInfoComponent
-      // },
-      // {
-      //   path: 'products',
-      //   component: ProductsComponent
-      // },
-      // {
-      //   path: 'orders',
-      //   component: OrdersComponent
-      // },
-      // {
-      //   path: 'bidding',
-      //   component: BiddingComponent
-      // },
+      {
+        path: 'biddingtheme',
+        component: BiddingthemeComponent
+      },
+      {
+        path: 'biddingdetails',
+        component: BiddingdetailsComponent
+      },
     ],
     canActivate: [AuthGuard]
   }

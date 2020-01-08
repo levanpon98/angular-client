@@ -117,7 +117,7 @@ export class CheckoutComponent implements OnInit {
       this.addresses = data;
     });
   }
-  GoToNext(value){
+  GoToNext(value) {
     if (this.billingAddresses.invalid) {
       return;
     }
