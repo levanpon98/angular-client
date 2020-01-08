@@ -1,3 +1,4 @@
+import { BiddingModule } from './modules/bidding/bidding.module';
 import { CheckoutService } from './services/checkout.service';
 
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -9,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CustomerModule } from './modules/customer/customer.module';
 import { ToastrModule} from 'ngx-toastr';
 import { JwtModule } from '@auth0/angular-jwt';
+import { FileSelectDirective } from 'ng2-file-upload';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -45,9 +48,11 @@ export function tokenGetter() {
     ForgotPasswordComponent,
     LogoutComponent,
     FaqComponent,
+    FileSelectDirective,
     // ConfirmPassDirective
   ],
   imports: [
+    BiddingModule,
     BrowserModule,
     CustomerModule,
     AppRoutingModule,

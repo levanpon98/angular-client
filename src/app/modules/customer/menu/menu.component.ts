@@ -16,6 +16,6 @@ export class MenuComponent implements OnInit {
 
     this.menuService.getMenu().subscribe(res => {
       this.menus = res;
-    })
+    });
   }
 }

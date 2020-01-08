@@ -21,7 +21,7 @@ export class StorageService {
   }
   createProduct(value, image1, image2, image3, mainimage): Promise<any> {
     return new Promise((resolve, reject) => {
-      console.log(mainimage);
+      console.log(mainimage.name);
       this.http.post(`${this.uri}/api/product`,
        {
         // tslint:disable:object-literal-key-quotes
@@ -29,8 +29,8 @@ export class StorageService {
         'price': value.price,
         'description': value.description,
         'status': 1,
-        'image': mainimage,
-        'gallery': image1
+        'image': mainimage.name,
+        'gallery': image1.name
 
       }
       ).toPromise().then((result) => {

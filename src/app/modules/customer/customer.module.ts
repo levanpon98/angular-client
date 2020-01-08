@@ -18,6 +18,7 @@ import { CustomerInfoAddressComponent } from './customer-info-address/customer-i
 import { CustomerInfoWalletComponent } from './customer-info-wallet/customer-info-wallet.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartsComponent } from './carts/carts.component';
+import { BiddingComponent } from './bidding/bidding.component';
 
 @NgModule({
 
@@ -35,6 +36,7 @@ import { CartsComponent } from './carts/carts.component';
     CustomerInfoWalletComponent,
     CheckoutComponent,
     CartsComponent,
+    BiddingComponent,
   ],
   imports: [
     CommonModule,

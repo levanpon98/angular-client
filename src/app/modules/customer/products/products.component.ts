@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router';
 import { resolve } from 'url';
+import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 import { ThrowStmt } from '@angular/compiler';
 @Injectable()
 @Component({
@@ -24,6 +25,7 @@ export class ProductsComponent implements OnInit {
    // tslint:disable-next-line:ban-types
    errorMessage: String = '';
    formAddProduct: FormGroup;
+   public uploader: FileUploader;
    formEditProduct: FormGroup;
    returnURL: string;
    loading = false;
@@ -154,7 +156,6 @@ export class ProductsComponent implements OnInit {
         ])
       ),
     });
-    //this.router.navigate(['customer/checkout']);
   }
   GetProducts() {
     this.Strorage.getProduct().then((res)  => {
@@ -257,10 +258,8 @@ public onChange_main(event): Promise<any>  {
       const innerHTML = this.elementRef.nativeElement.querySelector('.preview-section_main');
       innerHTML.insertAdjacentHTML('beforeend', span);
     };
-
     // const urlImg = localStorage.getItem('urlImage');
     // console.log(urlImg);
-
     reader.readAsDataURL(file);
     event.target.value = '';
   }
