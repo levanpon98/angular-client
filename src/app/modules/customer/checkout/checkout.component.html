@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Checkout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> ​ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    ​
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <h4 class="font-weight-bold">Checkout</h4>
+        <hr class="mt-0">
+        <ul id="tabCheckout" class="nav nav-pills nav-justified w-50 pt-3" role="tablist">
+            <li class="nav-item">
+                <a id="idTabAddress" class="nav-link active" href="#address">Billing Address</a>
+            </li>
+            <li class="nav-item">
+                <a id="idTabDelivery" class="nav-link" href="#delivery">Delivery options</a>
+            </li>
+            <li class="nav-item">
+                <a id="idTabOrder" class="nav-link" href="#order">Order status</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="billingAddress" class="container tab-pane active"><br>
+                <h5 class="pb-3">Your Billing Address</h5>
+                <form class="normal-form" [formGroup]="billingAddresses">
+                    <div class="form-group row pb-2">
+                        <label for="username" class="col-sm-2 col-form-label">Username</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="idUsername" placeholder="Firstname" formControlName="firstname">
+                        </div>
+                        <label class="text-danger"> *</label>
+                    </div>
+                    <div class="form-group row pb-2">
+                        <label for="username" class="col-sm-2 col-form-label">Lastname</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="idLastname" placeholder="Lastname" formControlName="lastname">
+                        </div>
+                        <label class="text-danger"> *</label>
+                    </div>
+                    <div class="form-group row pb-2">
+                        <label for="username" class="col-sm-2 col-form-label">Province</label>
+                        <div class="col-sm-6">
+                            <!-- <input type="text" class="form-control" id="idProvince" placeholder="Select Province"> -->
+                            <select id="idProvince" class="form-control" formControlName="province" (change)="onChangeProvince($event)">
+                                <option selected>Select province</option>
+                                <option *ngFor="let province of provinces" [value]="province.code">
+                                  {{province.name}}
+                              </option>
+                            </select>
+                        </div>
+                        <label class="text-danger"> *</label>
+                    </div>
+                    <div class="form-group row pb-2">
+                        <label for="username" class="col-sm-2 col-form-label">District</label>
+                        <div class="col-sm-6">
+                            <!-- <input type="text" class="form-control" id="idDistrict"> -->
+                            <select id="idDistrict" class="form-control" formControlName="district" (change)="onChangeDistrict($event)">
+                              <option selected>Select district</option>
+                              <option *ngFor="let district of districts" [value]="district.code">
+                                {{district.name}}
+                              </option>
+              </select>
+                        </div>
+                        <label class="text-danger"> *</label>
+                    </div>
+                    <div class="form-group row pb-2">
+                        <label for="username" class="col-sm-2 col-form-label">Sub-district</label>
+                        <div class="col-sm-6">
+                            <!-- <input type="text" class="form-control" id="idSubdistrict"> -->
+                            <select id="idSubdistrict" class="form-control" formControlName="ward">
+                            <option selected>Select wards</option>
+                            <option *ngFor="let ward of wards" [value]="ward.code">
+                              {{ward.name}}
+                            </option>
+              </select>
+                        </div>
+                        <label class="text-danger"> *</label>
+                    </div>
+                    <div class="form-group row pb-2">
+                        <label for="username" class="col-sm-2 col-form-label">Address</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="idAddress" placeholder="Number + village + street" formControlName="address">
+                        </div>
+                        <label class="text-danger"> *</label>
+                    </div>
+                    <div class="form-group row pb-2">
+                        <label for="username" class="col-sm-2 col-form-label">Country</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="idCountry" value="Vietnam" formControlName="country">
+                        </div>
+                        <label class="text-danger"> *</label>
+                    </div>
+                    <div class="form-group row pb-2">
+                        <label for="username" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="idEmail" value="pornhub@gmail.com" formControlName="email">
+                        </div>
+                        <label class="text-danger"> *</label>
+                    </div>
+                    <div class="form-group row pb-2">
+                        <label for="username" class="col-sm-2 col-form-label">Mobile Phone</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="idPhoneNumber" placeholder="Phone no. (start with 0)" formControlName="phone">
+                        </div>
+                        <label class="text-danger"> *</label>
+                    </div>
+                    <div class="form-group row pb-2">
+                        <label for="username" class="col-sm-2 col-form-label">Delivery Instructions</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" rows="5" id="comment" placeholder="Optional" formControlName="note"></textarea>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-sm-10 row form-inline justify-content-center pb-3">
+                    <span id="fillAddress" class="badge badge-pill badge-danger col-sm-6" style="display: none;">Please fill out all field.</span>
+                </div>
+                <div class="col-sm-10 row form-inline justify-content-center pb-5">
+                    <p>
+                        <button id="nextDelivery" class="btn btn-primary" type="submit" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-shopping-cart" aria-hidden="true" (click)="GoToNext(billingAddresses.value)" > &nbsp; Next</i>
+            </button>
+                    </p>
+                </div>
+                <br class="pb-5">
+                <script type="text/javascript">
+                    $("#nextDelivery").click(function(e) {
+                        var empty = $("#billingAddress").find("input").filter(function() {
+                            return this.value === "";
+                        });
+                        if (!empty.length) {
+                            // $("#billingAddress").removeClass("active");
+                            $("#billingAddress").hide();
+                            $("#idTabDelivery").addClass("active");
+                            $("#idTabAddress").removeClass("active");
+                            $("#delivery").addClass("active");
+                            $(this).hide();
+                            e.stopPropagation();
+                        } else {
+                            $('#fillAddress').show(0).delay(3000).hide(0);
+                        }
+                    });
+                </script>
+            </div>
+            <div id="delivery" class="container tab-pane"><br>
+                <h5 class="pb-3">SELECT DELIVERY OPTION:</h5>
+                <form class="delivery col-sm-6 pl-4 pb-5" style="border:1px solid black">
+                    <span class="font-weight-bold">
+            Standard Delivery - Delivery to your door step.
+            <br>
+          </span>
+                    <label class="form-check-label">
+              <input type="radio" id="bank" class="form-check-input" name="optradio"><span class="font-italic"><small>Nationwide delivery | from 49.000 ₫</small></span>
+          </label>
+                </form>
+                <div class="col-sm-10 row form-inline justify-content-center pb-3 pt-5">
+                    <span id="chooseBank" class="badge badge-pill badge-danger col-sm-6" style="display: none;">Please choose your bank.</span>
+                </div>
+                <div class="col-sm-10 row form-inline justify-content-center pb-5">
+                    <p>
+                        <button id="nextOrder" class="btn btn-primary" type="submit" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-shopping-cart" aria-hidden="true"> &nbsp; Next</i>
+            </button>
+                    </p>
+                </div>
+                <br class="pb-5">
+                <script type="text/javascript">
+                    $("#nextOrder").click(function(e) {
+                        if ($("#bank").is(":checked")) {
+                            // $("#delivery").removeClass("active");
+                            $("#delivery").hide()
+                            $("#idTabOrder").addClass("active");
+                            $("#idTabDelivery").removeClass("active");
+                            $("#orderStatus").addClass("active");
+                            $(this).hide();
+                            e.stopPropagation();
+                        } else {
+                            $('#chooseBank').show(0).delay(3000).hide(0);
+                        }
+                    });
+                </script>
+            </div>
+            <div id="orderStatus" class="container tab-pane"><br>
+                <h6 class="pb-3">Your status:</h6>
+                <div class="col-sm-6 pl-0 pb-5">
+                    <textarea class="form-control" rows="8" id="comment" placeholder=" Optional"></textarea>
+                </div>
+                <div class="col-sm-10 row form-inline justify-content-center pb-5">
+                    <p>
+                        <button id="orderProduct" class="btn btn-primary" type="submit" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-shopping-cart" aria-hidden="true"> &nbsp; Order</i>
+            </button>
+                    </p>
+                </div>
+                <br class="pb-5">
+                <script type="text/javascript">
+                    $("#orderProduct").click(function(e) {
+                        $("#idTabOrder").removeClass("active");
+                        $(".container").hide();
+                        $(this).hide();
+                        e.stopPropagation();
+                    });
+                </script>
+            </div>
+            ​ ​
+        </div>
+    </div>
+    ​
+</body>
+
+</html>

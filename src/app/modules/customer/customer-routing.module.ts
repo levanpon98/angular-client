@@ -1,3 +1,4 @@
+import { CheckoutComponent } from './checkout/checkout.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -9,7 +10,6 @@ import {AuthGuard} from '../../guard/auth.guard';
 import {ProductsComponent} from './products/products.component';
 import {OrdersComponent} from './orders/orders.component';
 
-
 const routes: Routes = [
   {
     path: 'customer',
@@ -18,6 +18,10 @@ const routes: Routes = [
       {
         path: 'change-password',
         component: ChangePasswordComponent
+      },
+      {
+        path: 'checkout',
+        component: CheckoutComponent
       },
       {
         path: 'info',

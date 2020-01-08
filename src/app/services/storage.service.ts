@@ -19,15 +19,18 @@ export class StorageService {
      });
     });
   }
-  createProduct(value): Promise<any> {
+  createProduct(value, image1, image2, image3, mainimage): Promise<any> {
     return new Promise((resolve, reject) => {
+      console.log(mainimage);
       this.http.post(`${this.uri}/api/product`,
        {
         // tslint:disable:object-literal-key-quotes
         'title': value.title,
         'price': value.price,
         'description': value.description,
-        'status': 1
+        'status': 1,
+        'image': mainimage,
+        'gallery': image1
 
       }
       ).toPromise().then((result) => {

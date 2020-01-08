@@ -1,3 +1,4 @@
+import { CheckoutService } from './services/checkout.service';
 
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,7 +25,6 @@ import { AuthService} from './services/auth.service';
 import { MenuService} from './services/menu.service';
 import { CustomerService } from './services/customer.service';
 import { AddressService } from './services/address.service';
-
 // import { ConfirmPassDirective } from './share/confirm-pass.directive';
 
 import { AuthInterceptor } from './auth.interceptor';
@@ -71,6 +71,7 @@ export function tokenGetter() {
     MenuService,
     CustomerService,
     AddressService,
+    CheckoutService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

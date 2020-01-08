@@ -85,7 +85,7 @@ export class CustomerInfoAddressComponent implements OnInit {
   getAddresses() {
     this.addressService.getAddresses().subscribe(data => {
       this.addresses = data;
-    })
+    });
   }
   onSubmit(value) {
     if (this.addAddressFrom.invalid) {
@@ -100,10 +100,10 @@ export class CustomerInfoAddressComponent implements OnInit {
       if (result.ok === 1) {
         this.toast.success(result.messages, 'Success');
         this.addresses.push(result.address);
-      } else if(result.ok === 0){
+      } else if (result.ok === 0){
         this.toast.error(result.error, 'Error');
       }
-    })
+    });
   }
 
   editAddress(value) {
