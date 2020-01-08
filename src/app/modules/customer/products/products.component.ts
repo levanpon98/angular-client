@@ -36,6 +36,11 @@ export class ProductsComponent implements OnInit {
    Edittitle: any;
    statusDelete: boolean;
    DeleteItems: any;
+   imageEdit: any;
+   image1: any;
+   image2: any;
+   image3: any;
+   imageMain: any;
    validationMessages = {
      title: [
        {type: 'required', message: 'Email is required.'},
@@ -93,6 +98,34 @@ export class ProductsComponent implements OnInit {
           Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
         ])
       ),
+      image1: new FormControl(
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        ])
+      ),
+      image2: new FormControl(
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        ])
+      ),
+      image3: new FormControl(
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        ])
+      ),
+      mainimage: new FormControl(
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+        ])
+      ),
     });
     this.formEditProduct = this.formBuilder.group({
       titleEdit: new FormControl(
@@ -121,9 +154,11 @@ export class ProductsComponent implements OnInit {
         ])
       ),
     });
+    //this.router.navigate(['customer/checkout']);
   }
   GetProducts() {
     this.Strorage.getProduct().then((res)  => {
+      console.log(res);
       this.items = res.products;
       for (let i = 0 ; i < res.count; i++) {
         this.item[i] = this.items[i];
@@ -142,8 +177,7 @@ export class ProductsComponent implements OnInit {
   });
   }
   AddProduct(value) {
-    console.log(value);
-    this.Strorage.createProduct(value).then((result) => {
+    this.Strorage.createProduct(value, this.image1, this.image2, this.image3, this.imageMain).then((result) => {
       console.log(result);
       this.GetProducts();
     });
@@ -203,7 +237,8 @@ export class ProductsComponent implements OnInit {
   }
 
 // ****************/
-public onChange_main(event): void {
+public onChange_main(event): Promise<any>  {
+  return new Promise((res, reject) => {
   if ((event.target as HTMLInputElement).files && (event.target as HTMLInputElement).files.length) {
     const file = event.target.files[0];
     const thisUploadImage = event.target;
@@ -217,7 +252,7 @@ public onChange_main(event): void {
       const url = (evt.target as FileReader).result;
       // tslint:disable-next-line:max-line-length
       const span = '<img class="thumb mrm mts" style="width: 192px; height: 192px;" src="' + url + '" title="' + escape(file.name) + '"/><span class="remove_img_preview"></span>';
-
+      res(url);
 // ****************/
       const innerHTML = this.elementRef.nativeElement.querySelector('.preview-section_main');
       innerHTML.insertAdjacentHTML('beforeend', span);
@@ -229,10 +264,14 @@ public onChange_main(event): void {
     reader.readAsDataURL(file);
     event.target.value = '';
   }
+}).then((result) => {
+  this.imageMain = result;
+});
 }
 
 // ****************/
-  public onChange(event): void {
+  public onChange(event): Promise<any>  {
+    return new Promise((res, reject) => {
     if ((event.target as HTMLInputElement).files && (event.target as HTMLInputElement).files.length) {
       const file = event.target.files[0];
       const thisUploadImage = event.target;
@@ -246,7 +285,7 @@ public onChange_main(event): void {
         const url = (evt.target as FileReader).result;
         // tslint:disable-next-line:max-line-length
         const span = '<img class="thumb mrm mts" style="width: 128px; height: 128px;" src="' + url + '" title="' + escape(file.name) + '"/><span class="remove_img_preview"></span>';
-
+        res(url);
 // ****************/
         const innerHTML = this.elementRef.nativeElement.querySelector('.preview-section');
         innerHTML.insertAdjacentHTML('beforeend', span);
@@ -258,39 +297,41 @@ public onChange_main(event): void {
       reader.readAsDataURL(file);
       event.target.value = '';
     }
+  }).then((result) => {
+    this.image1 = result;
+  });
   }
 
 // ****************/
-  public onChange1(event): void {
+  public onChange1(event): Promise<any> {
+    return new Promise((res, reject) => {
+    localStorage.removeItem('urlImage');
     if ((event.target as HTMLInputElement).files && (event.target as HTMLInputElement).files.length) {
       const file = event.target.files[0];
       const thisUploadImage = event.target;
-
       const reader = new FileReader();
       // tslint:disable-next-line:no-shadowed-variable
       thisUploadImage.parentElement.style.display = 'none';
-
       reader.onload = (evt) => {
-        // localStorage.setItem('urlImage', JSON.stringify((event.target as FileReader).result));
-        const url = (evt.target as FileReader).result;
+        const url = (evt.target as FileReader).result.toString();
+        res(url);
         // tslint:disable-next-line:max-line-length
         const span = '<img class="thumb mrm mts" style="width: 128px; height: 128px;" src="' + url + '" title="' + escape(file.name) + '"/><span class="remove_img_preview"></span>';
-
-// ****************/
         const innerHTML = this.elementRef.nativeElement.querySelector('.preview-section1');
         innerHTML.insertAdjacentHTML('beforeend', span);
+
       };
-
-      // const urlImg = localStorage.getItem('urlImage');
-      // console.log(urlImg);
-
       reader.readAsDataURL(file);
       event.target.value = '';
     }
+  }).then((result) => {
+      this.image2 = result;
+  });
   }
 
 // ****************/
-  public onChange2(event): void {
+  public onChange2(event): Promise<any> {
+    return new Promise((res, reject) => {
     if ((event.target as HTMLInputElement).files && (event.target as HTMLInputElement).files.length) {
       const file = event.target.files[0];
       const thisUploadImage = event.target;
@@ -304,7 +345,7 @@ public onChange_main(event): void {
         const url = (evt.target as FileReader).result;
         // tslint:disable-next-line:max-line-length
         const span = '<img class="thumb mrm mts" style="width: 128px; height: 128px;" src="' + url + '" title="' + escape(file.name) + '"/><span class="remove_img_preview"></span>';
-
+        res(url);
 // ****************/
         const innerHTML = this.elementRef.nativeElement.querySelector('.preview-section2');
         innerHTML.insertAdjacentHTML('beforeend', span);
@@ -316,5 +357,8 @@ public onChange_main(event): void {
       reader.readAsDataURL(file);
       event.target.value = '';
     }
+  }).then((result) => {
+      this.image3 = result;
+  });
   }
 }

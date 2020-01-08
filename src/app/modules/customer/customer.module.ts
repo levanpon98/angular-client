@@ -16,6 +16,8 @@ import { ConfirmPassDirective} from '../../share/confirm-pass.directive';
 import { CustomerInfoPersonalComponent } from './customer-info-personal/customer-info-personal.component';
 import { CustomerInfoAddressComponent } from './customer-info-address/customer-info-address.component';
 import { CustomerInfoWalletComponent } from './customer-info-wallet/customer-info-wallet.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CartsComponent } from './carts/carts.component';
 
 @NgModule({
 
@@ -31,6 +33,8 @@ import { CustomerInfoWalletComponent } from './customer-info-wallet/customer-inf
     CustomerInfoPersonalComponent,
     CustomerInfoAddressComponent,
     CustomerInfoWalletComponent,
+    CheckoutComponent,
+    CartsComponent,
   ],
   imports: [
     CommonModule,

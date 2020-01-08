@@ -3,6 +3,7 @@
 
 
     <ul  class="top-links list-inline float-right">
+      <li [hidden]="!isLoggedIn" class="text-welcome hidden-xs-down"><a href="#" ><img src="assets/images/_smarty/my-cart.png" class="mr-2" style="max-height: 20px;"/> My cart</a></li>
       <li [hidden]="!isLoggedIn" class="text-welcome hidden-xs-down">Welcome to Smarty, <strong>{{username}}</strong></li>
       <li [hidden]="!isLoggedIn">
         <a class="dropdown-toggle no-text-underline" data-toggle="dropdown" routerLink="/customer/info"><i class="fa fa-user hidden-xs-down"></i> MY ACCOUNT</a>

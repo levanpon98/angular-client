@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -15,7 +16,7 @@
             padding: 20px 0px;
             overflow: hidden;
         }
-
+        
         form .post-image {
             position: relative;
             float: left;
@@ -28,15 +29,15 @@
             text-align: center;
             cursor: pointer;
         }
-
+        
         .mrm {
             margin-right: 20px;
         }
-
+        
         .mts {
             margin-top: 10px;
         }
-
+        
         form .post-image .upload-section img {
             max-width: 80px;
             max-height: 80px;
@@ -47,21 +48,21 @@
             overflow: hidden;
             margin-top: 50px;
         }
-
+        
         form .post-image .preview-section img {
             border-radius: 3px;
             overflow: hidden;
             margin: 0px;
         }
-
+        
         form .post-image .cloud_upload {
             display: none;
         }
-
+        
         form .post-image input {
             display: none;
         }
-
+        
         form .post-image.empty {
             position: relative;
             float: left;
@@ -75,7 +76,7 @@
             cursor: pointer;
             vertical-align: top;
         }
-
+        
         form .post-image.empty .cloud_upload {
             display: block;
             height: 100%;
@@ -87,16 +88,16 @@
             width: 100%;
             cursor: pointer;
         }
-
+        
         form .post-image.empty .cloud_upload img {
             height: 60px;
             width: 60px;
         }
-
+        
         form .post-image.empty input {
             cursor: pointer;
         }
-
+        
         form .post-image p,
         .file_container-orange p {
             margin: 10px 0;
@@ -104,22 +105,22 @@
             text-align: center;
             font-family: "OpenSansSemiBold", sans-serif;
         }
-
+        
         .uppercase {
             text-transform: uppercase;
         }
-
+        
         #list {
             float: left;
         }
-
+        
         .thumb {
             height: 130px;
             width: 130px;
             margin-right: 20px;
             margin-top: 10px;
         }
-
+        
         .remove_img_preview {
             position: relative;
             top: -145px;
@@ -132,24 +133,27 @@
             cursor: pointer;
             background-color: #000;
         }
-
+        
         .remove_img_preview:before {
             content: "×";
             color: #fff;
             font-size: 22px;
             font-weight: bold;
         }
-
+        
         .file_container-orange {
             background: #fff;
             border: 2px dashed #f56b2a;
             margin-right: 10px;
         }
-        .file_container-orange img{
+        
+        .file_container-orange img {
             height: 50px;
-        width: 50px;
+            width: 50px;
         }
-        .file_container, .file_container-orange {
+        
+        .file_container,
+        .file_container-orange {
             position: relative;
             float: left;
             height: 142px;
@@ -159,15 +163,19 @@
             text-align: center;
             cursor: pointer;
         }
+        
         .file_container-orange p {
             color: #f56b2a;
         }
-        .file_container p, .file_container-orange p {
+        
+        .file_container p,
+        .file_container-orange p {
             margin: 10px 0;
             margin: 1rem 0;
             text-align: center;
-            font-family: "OpenSansSemiBold",sans-serif;
+            font-family: "OpenSansSemiBold", sans-serif;
         }
+        
         .checkbox {
             margin-top: 10px;
             min-height: 20px;
@@ -175,11 +183,12 @@
             color: #1a1a1a;
             user-select: none;
         }
-        .checkbox input[type="checkbox"], .checkbox input[type="checkbox"]:checked {
+        
+        .checkbox input[type="checkbox"],
+        .checkbox input[type="checkbox"]:checked {
             background: #f56b2a;
             text-decoration: none;
         }
-
     </style>
 </head>
 ​
@@ -275,7 +284,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="formAddProduct" class="normal-form">
+                    <form [formGroup]="formAddProduct" class="normal-form" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Product name <strong class="text-danger">*</strong></label>
                             <input type="text" class="form-control" formControlName="title" aria-describedby="emailHelp" placeholder="Product name">
@@ -290,7 +299,7 @@
                             <textarea required maxlength="10000" rows="5" class="form-control" name="contact[message]" formControlName="description">
                             </textarea>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="image" class="mb-0">Upload image <strong class="text-danger">*</strong></label>
 
@@ -298,7 +307,7 @@
                                 <div class="post-image-collection pt-0">
                                     <div class="post-image post-image-placeholder mrm mts empty" style="width: 192px; height: 192px;">
                                         <div class="upload-section ">
-                                            <input type="file" id="image_main" class="upload-img" required accept="image/*" (change)="onChange_main($event)"/>
+                                            <input type="file" id="image_main" class="upload-img" required accept="image/*" (change)="onChange_main($event)" />
                                             <label class="cloud_upload" for="image_main">
                                                 <img class="mt-4" style="width: 64px; height: 64px;"
                                                         src="https://cdn.onlinewebfonts.com/svg/img_474324.png" />
@@ -313,7 +322,7 @@
                                 <div class="post-image-collection pt-0">
                                     <div class="post-image post-image-placeholder mrm mts empty">
                                         <div class="upload-section">
-                                            <input type="file" id="image_1" class="upload-img" required accept="image/*" (change)="onChange($event)"/>
+                                            <input type="file" id="image_1" class="upload-img" required accept="image/*" (change)="onChange($event)" multi />
                                             <label class="cloud_upload" for="image_1">
                                                 <img class="mt-4" style="width: 32px; height: 32px;"
                                                         src="https://cdn.onlinewebfonts.com/svg/img_474324.png" />
@@ -324,7 +333,7 @@
                                     </div>
                                     <div class="post-image post-image-placeholder mrm mts empty">
                                         <div class="upload-section">
-                                            <input type="file" id="image_2" class="upload-img" required accept="image/*" (change)="onChange1($event)"/>
+                                            <input type="file" id="image_2" class="upload-img" required accept="image/*" (change)="onChange1($event)" multi />
                                             <label class="cloud_upload" for="image_2">
                                                 <img class="mt-4" style="width: 32px; height: 32px;"
                                                         src="https://cdn.onlinewebfonts.com/svg/img_474324.png" />
@@ -335,7 +344,7 @@
                                     </div>
                                     <div class="post-image post-image-placeholder mrm mts empty">
                                         <div class="upload-section">
-                                            <input type="file" id="image_3" class="upload-img" required accept="image/*" (change)="onChange2($event)"/>
+                                            <input type="file" id="image_3" class="upload-img" required accept="image/*" (change)="onChange2($event)" />
                                             <label class="cloud_upload" for="image_3">
                                                 <img class="mt-4" style="width: 32px; height: 32px;"
                                                         src="https://cdn.onlinewebfonts.com/svg/img_474324.png" />
@@ -407,4 +416,5 @@
     </div>
 
 </body>
+
 </html>
